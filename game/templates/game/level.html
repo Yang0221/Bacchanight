@@ -39,9 +39,9 @@
                         <div class="imagecontainer" style="position: relative;">
                             <img id="painting" src="{% static 'images/' %}{{level.image}}" width="100%" onclick="check('detimg',event)">
                         </div>
-                        <div style="display: none; background-color:#f3f7fb; border-radius: 3px; position: absolute; top: 180px; left: 29px; right: 32px; padding: 5px;" class="text-center">
-                            <h1 style="color: #0B3C49; ">GAGNE !</h1>
-                            <a id="btmsuivant" style="width: 80%;background-color: #0B3C49; color: #f3f7fb ; padding:5px;"href="{{level.id}}"  class="btn btn btn-lg" role="button" aria-pressed="true" >NIVEAU SUIVANT</a>
+                        <div id="nextlevel" class="text-center">
+                            <h1 class="textgagner" >GAGNE !</h1>
+                            <a id="btmsuivant" href="{% url 'game:show' id=level.id|add:'1' %}"  class="btn btn btn-lg" role="button" aria-pressed="true" >NIVEAU SUIVANT</a>
                         </div>
                     </div>
                     <div class="card-footer text-center">

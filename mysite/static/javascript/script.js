@@ -40,6 +40,7 @@ function check(detimg, event){
     if( event.clientX > xup && event.clientX < xdown && event.clientY > yup && event.clientY < ydown){
         console.log('ok');
         document.getElementById(detimg).setAttribute("class", "check");
+        document.getElementById("nextlevel").style.display = "block";
     }
 
     console.log(" x : " + event.clientX + "\n y : " + event.clientY);
