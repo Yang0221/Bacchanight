@@ -2,10 +2,13 @@
 {% load static %}
 
 {% block script %}
-    <script type="text/javascript">
-        var a = "{{level.name}}";
-    </script>
-    <script src="{% static 'javascript/script.js' %}"></script>
+<script type="text/javascript">
+    var tab = [];
+    {% for d in detail %}
+        tab.push({x : {{d.position_x}}, y : {{d.position_y}}, checked : false});
+    {% endfor %}
+</script>
+ <script src="{% static 'javascript/script.js' %}"></script>
 {% endblock %}
 
 {% block title %}Level {{level.id}}{% endblock title %}
@@ -46,7 +49,7 @@
                     </div>
                     <div class="card-footer text-center">
                         {% for d in detail %}
-                            <div id="carde" ><img id="detimg" src="{% static 'images/' %}{{d.image}}" ></div>
+                            <div class="carde" ><img class="detimg" src="{% static 'images/' %}{{d.image}}" ></div>
                         {% endfor %}
                         <br>
                     </div>
@@ -64,7 +67,7 @@
                       <p class=" text-center">Choisir le détail</p>
                       <!--For d in notFoundDetails-->
                       {% for d in detail %}
-                          <div id="carde" ><img id="detimg" src="{% static 'images/' %}{{d.image}}" onclick="OpenClueText()"></div>
+                        <div class="carde" ><img class="detimg" src="{% static 'images/' %}{{d.image}}" ></div>
                       {% endfor %}
                       <!--div id="clueText"> Tu n'as pas besoin d'aide. <br> Ouvre bien tes yeux.</div-->
 
