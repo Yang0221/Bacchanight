@@ -123,9 +123,13 @@ li a{
   font-size:small;
   color: white;
   background-color: #0B3C49;
-  width:  100%;
+  /* width:  70%; */
   display: none;
   border-style: ridge;
+  position: absolute;
+  top: -500px; 
+  left: 29px; 
+  right: 32px; 
 }
 
 #imgclue {
@@ -138,15 +142,20 @@ li a{
     color : black;
     border-style: ridge;
     margin-top: 2%;
+    
 }
 #noClueAvalaible{
    font-family: 'Quicksand', sans-serif;
    font-size:small;
    color: #0B3C49;
    background-color:#f3f7fb;
-   width:  100%;
+   /* width:  100%; */
    display: none;
    border-style: ridge;
+   position: absolute;
+   top: -370px; 
+   left: 29px; 
+   right: 32px; 
 }
 #close {
     display: inline;
