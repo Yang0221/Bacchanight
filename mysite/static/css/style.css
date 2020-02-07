@@ -17,14 +17,6 @@ li a{
     color: white;
 }
 
-.show-popup {
-  display : block;
-}
-
-.hide-popup {
-  display : none;
-}
-
 /******************** formulaire utilisateur ********************/
 #btmpseudo {
     background-color: #f3f7fb;
@@ -99,19 +91,19 @@ li a{
     border: solid 5px #c9e265;
 }
 #nextlevel{
-    display: none;
-    background-color:#f3f7fb;
-    border-radius: 3px;
-    position: absolute;
-    top: 180px;
-    left: 29px;
-    right: 32px;
+    display: none; 
+    background-color:#f3f7fb; 
+    border-radius: 3px; 
+    position: absolute; 
+    top: 180px; 
+    left: 29px; 
+    right: 32px; 
     padding: 5px;
 }
 #btmsuivant{
     width: 80%;
-    background-color: #0B3C49;
-    color: #f3f7fb ;
+    background-color: #0B3C49; 
+    color: #f3f7fb ; 
     padding:5px;
 }
 .textegagner{
@@ -135,9 +127,9 @@ li a{
   display: none;
   border-style: ridge;
   position: absolute;
-  top: -500px;
-  left: 29px;
-  right: 32px;
+  top: -500px; 
+  left: 29px; 
+  right: 32px; 
 }
 
 #imgclue {
@@ -150,7 +142,7 @@ li a{
     color : black;
     border-style: ridge;
     margin-top: 2%;
-
+    
 }
 #noClueAvalaible{
    font-family: 'Quicksand', sans-serif;
@@ -161,9 +153,9 @@ li a{
    display: none;
    border-style: ridge;
    position: absolute;
-   top: -370px;
-   left: 29px;
-   right: 32px;
+   top: -370px; 
+   left: 29px; 
+   right: 32px; 
 }
 #close {
     display: inline;

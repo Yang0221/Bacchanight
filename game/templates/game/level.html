@@ -3,10 +3,9 @@
 
 {% block script %}
 <script type="text/javascript">
-    ////////////TO DO : récupérer progression du joueur /////////////
     var tab = [];
     {% for d in detail %}
-        tab.push({x : {{d.position_x}}, y : {{d.position_y}}, height: {{d.height}}, width: {{d.width}}, checked : false});
+        tab.push({x : {{d.position_x}}, y : {{d.position_y}}, checked : false});
     {% endfor %}
 </script>
  <script src="{% static 'javascript/script.js' %}"></script>
@@ -17,13 +16,16 @@
 {% block nav %}{% endblock %}
 {% block content %}
 
+
+
+
+
     <div class="container" id="game_container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="card">
                     <div id="nav" class="card-header" >
-                            <!-- ////////////TO DO : récupérer nombre d'étoile ///////////// -->
                             <h3 id="nombre" >0</h3>
                             <i id="etoile" class="fas fa-star" ></i>
                             <i id="question"class="far fa-question-circle" onclick="OpenNoCluePopUp()"></i>
@@ -38,14 +40,14 @@
                         <h5 class="card-title text-center">{{level.name}}</h5>
 
                         <div class="imagecontainer" style="position: relative;">
-                            <img id="painting" src="{% static 'images/' %}{{level.image}}" width="100%" onclick="check(event)">
+                            <img id="painting" src="{% static 'images/' %}{{level.image}}" width="100%" onclick="check('detimg',event)">
                         </div>
                         <div id="nextlevel" class="text-center">
                             <h1 class="textgagner" >GAGNE !</h1>
                             <a id="btmsuivant" href="{% url 'game:show' id=level.id|add:'1' %}"  class="btn btn btn-lg" role="button" aria-pressed="true" >NIVEAU SUIVANT</a>
                         </div>
                     </div>
-                    <div class="card-footer text-center details">
+                    <div class="card-footer text-center">
                         {% for d in detail %}
                             <div class="carde" ><img class="detimg" src="{% static 'images/' %}{{d.image}}" ></div>
                         {% endfor %}
