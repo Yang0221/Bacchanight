@@ -1,3 +1,4 @@
+
 function check(event){
     var x = event.clientX;        // x de la souris
     var y = event.clientY;        // y de la souris
