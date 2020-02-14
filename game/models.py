@@ -10,8 +10,8 @@ class Level(models.Model):
 
 class Player(models.Model):
     login = models.CharField(max_length = 125)
-    nb_stars = models.IntegerField()            #min & max
-    time = models.IntegerField()
+    nb_stars = models.IntegerField(default=0)            #min & max
+    time = models.IntegerField(default=0)
     id_level = models.ForeignKey('Level' ,on_delete=models.CASCADE)
     detail1 = models.BooleanField(default=False)
     detail2 = models.BooleanField(default=False)

@@ -11,13 +11,16 @@
             <div class="col-md-4 text-center">
                 <img src="{% static 'images/header/header_image.png' %}">
                 <h3 style="color: #f3f7fb; font-family: 'Quicksand', sans-serif; margin-bottom: 30%;" >Trouve moi !</h3>
-                <form>
+                <form action="add_user" method="POST">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label for="pseudo" id="lblpseud">Pseudo</label>
-                        <input id="pseudo" type="text" class="form-control"  placeholder="Pseudo">
+                        <input id="pseudo" type="text" class="form-control"  placeholder="Pseudo" name="pseudo">
                     </div>
-                    <a id="btmpseudo" style="width: 50%;background-color: #f3f7fb; color: #0B3C49;"href="{% url 'game:show' id=1 %}"  class="btn btn btn-lg" role="button" aria-pressed="true">JOUER</a>
+                    <!-- <a id="btmpseudo" style="width: 50%;background-color: #f3f7fb; color: #0B3C49;"href="{% url 'game:show' id=1 %}"  class="btn btn btn-lg" role="button" aria-pressed="true">JOUER</a> -->
                     <!-- <button id="btmpseudo" type="submit" class="btn btn-primary">Submit</button> -->
+                    <!-- changer formulaire classique par formulaire en ajax -->
+                    <input type="submit" value="Jouer" tyle="width: 50%;background-color: #f3f7fb; color: #0B3C49;">
                 </form>
             </div>
             <div class="col-md-4"></div>

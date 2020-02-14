@@ -31,6 +31,7 @@ function check(event){
 
 
 
+////////    TODO : une seule fonction popup    //////////
 function openPopUpClue(){
     document.getElementById('popup').style.display = 'block';
 }

@@ -21,3 +21,19 @@ def show(request , id):
 
 def form_user(request):
     return render(request , 'game/form_user.html')
+
+def add_user(request):
+    #if request.is_ajax and request.POST:
+    new_pseudo = request.POST.get('pseudo')
+    players = Player.objects.all()
+    for p in players:
+        if new_pseudo == p.login:
+            print("error")
+            #ajouter message qui dit que le nom se trouve deja dans la bdd
+            return render(request , 'game/form_user.html')
+    #new_player = Player(login = new_pseudo)
+    #new_player.save()
+    # save ne marche pas car pas de valeur par défaut pour le level 1
+    #appel de la vue 
+
+    
