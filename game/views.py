@@ -35,5 +35,16 @@ def add_user(request):
     #new_player.save()
     # save ne marche pas car pas de valeur par défaut pour le level 1
     #appel de la vue 
+    
+    #voir si on peut pas appeler 2 fois la même fonction
+    try:
+        level = Level.objects.get(id=1)
+        detail = Detail.objects.filter(id_level = 1)
+        # mettre les champs details1, details2, details3, details4, details5 à false si tous les champs sont à true + idlevel + 1
+        player = Player.objects.get(id=1) 
+        print(player.detail1)
+    except Level.DoesNotExist:
+        raise Http404(id)
+    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail})
 
     
