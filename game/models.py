@@ -18,9 +18,7 @@ class Player(models.Model):
     detail3 = models.BooleanField(default=False)
     detail4 = models.BooleanField(default=False)
     detail5 = models.BooleanField(default=False)
-    
-    def __str__(self):
-        return self.login
+
 
 class Detail(models.Model):
     image = models.CharField(max_length = 255)
