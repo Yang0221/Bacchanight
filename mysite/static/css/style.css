@@ -25,6 +25,15 @@ li a{
   display : none;
 }
 
+.togle:hover{
+    color:#0B3C49;
+    text-decoration: none;
+    background-color: #f3f7fb;
+    padding: 5px;
+    font-weight:bold;
+    border-radius: 5px;
+}
+
 /******************** formulaire utilisateur ********************/
 #btmpseudo {
     background-color: #f3f7fb;
