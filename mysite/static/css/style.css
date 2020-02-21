@@ -111,7 +111,9 @@ div.col-md-4{
     filter : blur(2px);
 }
 .check{
-    border: solid 5px #c9e265;
+    /* border: solid 5px #c9e265; */
+    border:2px dashed black;
+    
 }
 #nextlevel{
     display: none;
