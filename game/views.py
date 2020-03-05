@@ -22,8 +22,22 @@ def show(request , id):
         raise Http404(id)
     return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player})
 
-def form_user(request):
-    return render(request , 'game/form_user.html')
+def form_user_start(request):
+    return render(request , 'game/form_user.html', {'start' :  'add_user' })
+
+def form_user_continue(request):
+    return render(request , 'game/form_user.html', {'continue' :  'recover_user' })
+
+def next_level(request):
+    if request.session['player_id'] : 
+        player = Player.objects.get(id = request.session['player_id'])
+        player_level = player.id_level
+        next_level = Level.objects.get(id = (player_level.id)+1 )
+        player.id_level = next_level
+        player.save()
+        return HttpResponseRedirect('level/' + str(next_level.id))
+    return render(request , 'game/index.html')
+
 
 def add_user(request):
     first_level = 1
@@ -32,13 +46,24 @@ def add_user(request):
         players = Player.objects.all()
         for p in players:
             if new_pseudo == p.login:
-                print("error")
-                #ajouter message qui dit que le nom se trouve deja dans la bdd
                 return render(request , 'game/form_user.html', {'error' : "Ce pseudo est déjà utilisé."})
         level = Level.objects.get(id=first_level)
         new_player = Player(login = new_pseudo, id_level = level)
         new_player.save()
         request.session['player_id'] = new_player.id
         return HttpResponseRedirect('level/' + str(first_level))
+
+def recover_user(request):
+    if request.POST:
+        user_pseudo = request.POST.get('pseudo')
+        players = Player.objects.all()
+        for p in players:
+            if user_pseudo == p.login:
+                request.session['player_id'] = p.id
+                level = Level.objects.get(name = p.id_level)
+                return HttpResponseRedirect('level/' + str(level.id))
+        return render(request , 'game/form_user.html', {'error' : "Aucune partie ne correspond à ce joueur."})
+        
+
 
     

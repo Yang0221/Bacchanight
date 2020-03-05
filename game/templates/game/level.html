@@ -42,7 +42,7 @@
                         </div>
                         <div id="nextlevel" class="text-center">
                             <h1 class="textgagner" >GAGNE !</h1>
-                            <a id="btmsuivant" href="{% url 'game:show' id=level.id|add:'1' %}"  class="btn btn btn-lg" role="button" aria-pressed="true" >NIVEAU SUIVANT</a>
+                            <a id="btmsuivant" href="{% url 'game:next_level' %}"  class="btn btn btn-lg" role="button" aria-pressed="true" >NIVEAU SUIVANT</a>
                         </div>
                     </div>
                     <div class="card-footer text-center details">
