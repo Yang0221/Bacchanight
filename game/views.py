@@ -10,8 +10,6 @@ from django.http import HttpResponseRedirect
 def index(request):
     return render(request , 'game/index.html', {'levels' : Level.objects.all()})
 
-#TODO : récupérer player dans la variable globale --> details + level en fonction + champs détail1 ... details5
-# a appeler a chaque affichage d'un level
 def show(request , id):
     try:
         level = Level.objects.get(id=id)
@@ -20,7 +18,7 @@ def show(request , id):
         print(player)
     except Level.DoesNotExist:
         raise Http404(id)
-    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player})
+    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player[0]})
 
 def form_user_start(request):
     return render(request , 'game/form_user.html', {'start' :  'add_user' })
@@ -64,6 +62,25 @@ def recover_user(request):
                 return HttpResponseRedirect('level/' + str(level.id))
         return render(request , 'game/form_user.html', {'error' : "Aucune partie ne correspond à ce joueur."})
         
+def check_detail(request):
+    if request.is_ajax and request.POST:
+        num = request.POST.get('num')
+        player = Player.objects.get(id = request.session['player_id'])
+        if num == 1 :
+            player.detail1 = True
+        elif num == 2 :
+            player.detail2 = True
+        elif num == 3 :
+            player.detail3 = True
+        elif num == 4 :
+            player.detail4 = True
+        elif num == 5 :
+            player.detail5 = True
+        player.save()
+        return HttpResponse(json.dumps("ok"), content_type="application/json")
+    else:
+        raise Http404
+
 
 
     

@@ -25,12 +25,18 @@ function check(event) {
         }
     }
     if (num > -1 && num < nb_level) {
+        /*$.ajax({
+            type : "POST",
+            url : "/check_detail",
+            dataType: 'json',
+            data : { 'num' : num + 1}
+        })*/
+    
         tab[num].checked = true;
+        $('.details div:nth-child(' + (num + 1) + ') img').addClass("check");
     }
 
-    /////////TO DO : AJAX --> mettre true dans la BDD /////////////////////////////
-
-    $('.details div:nth-child(' + (num + 1) + ') img').addClass("check");
+   
 
     var end = true;
     for (var i = 0; i < nb_level; i++) {
