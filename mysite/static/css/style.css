@@ -25,6 +25,15 @@ li a{
   display : none;
 }
 
+.togle:hover{
+    color:#0B3C49;
+    text-decoration: none;
+    background-color: #f3f7fb;
+    padding: 5px;
+    font-weight:bold;
+    border-radius: 5px;
+}
+
 /******************** formulaire utilisateur ********************/
 #btmpseudo {
     background-color: #f3f7fb;
@@ -67,6 +76,12 @@ li a{
 /********************* le fichier level ******************************/
 
 /********** card-header *************/
+div.col-md-4{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
 .card-header{
     font-size: 20px;
 }
@@ -118,6 +133,7 @@ li a{
 }
 .check{
     border: solid 5px #c9e265;
+    
 }
 #nextlevel{
     display: none;

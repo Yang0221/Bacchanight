@@ -10,8 +10,13 @@
             <div class="col-md-4"></div>
             <div id="context" class="col-md-4 text-center">
                 <img src="{% static 'images/header/header_image.png' %}">
+<<<<<<< HEAD
                 <h3 class="namegame" >Trouve moi !</h3>
                 <form action="add_user" method="POST">
+=======
+                <h3 style="color: #f3f7fb; font-family: 'Quicksand', sans-serif; margin-bottom: 30%;" >Trouve moi !</h3>
+                <form action="{% if start %}{{start}}{% elif continue %}{{continue}}{% endif %}" method="POST">
+>>>>>>> f44356c955feb7e632dbf12609c92927e0633cdc
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="pseudo" id="lblpseud">Pseudo</label>
@@ -21,8 +26,17 @@
                     <!-- <a id="btmpseudo" style="width: 50%;background-color: #f3f7fb; color: #0B3C49;"href="{% url 'game:show' id=1 %}"  class="btn btn btn-lg" role="button" aria-pressed="true">JOUER</a> -->
                     <!-- <button id="btmpseudo" type="submit" class="btn btn-primary">Submit</button> -->
                     <!-- changer formulaire classique par formulaire en ajax -->
+<<<<<<< HEAD
                     <input class="jouer" type="submit" value="Jouer">
                 </form>
+=======
+                    {% if start %}
+                        <input type="submit" value="Jouer" tyle="width: 50%;background-color: #f3f7fb; color: #0B3C49;">
+                    {% elif continue %}
+                        <input type="submit" value="Continuer" tyle="width: 50%;background-color: #f3f7fb; color: #0B3C49;">
+                    {% endif %}
+                    </form>
+>>>>>>> f44356c955feb7e632dbf12609c92927e0633cdc
             </div>
             <div class="col-md-4"></div>
         </div>

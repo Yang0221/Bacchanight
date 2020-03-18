@@ -25,7 +25,7 @@ SECRET_KEY = '0m*$-b2*j19+c-4d^5f)sea6tspo9#eodp++xfm0s7m2^qoz*k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.emi.u-bordeaux.fr', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.emi.u-bordeaux.fr', '.pythonanywhere.com']
 
 
 # Application definition
