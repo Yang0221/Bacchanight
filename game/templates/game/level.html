@@ -28,16 +28,13 @@
                             <i id="etoile" class="fas fa-star" ></i>
                             <i id="question"class="far fa-question-circle" onclick="OpenNoCluePopUp()"></i>
                             <i id="indice" onclick="openPopUpClue()"  class="fas fa-lightbulb"></i>
-
-
-                        <div class="card" style="background-color:#0B3C49; width: 67%;">
+                        <div class="card" id="top-menu" >
                             <h6  class="text-center" id="texte">{{level.world.name}}</h6>
                         </div>
                     </div>
                     <div class="card-body" >
                         <h5 class="card-title text-center">{{level.name}}</h5>
-
-                        <div class="imagecontainer" style="position: relative;">
+                        <div class="imagecontainer">
                             <img id="painting" src="{% static 'images/' %}{{level.image}}" width="100%" onclick="check(event)">
                         </div>
                         <div id="nextlevel" class="text-center">

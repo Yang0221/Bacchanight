@@ -35,16 +35,33 @@ li a{
     text-transform: uppercase ;
     color: #f3f7fb;
 }
-
+.jouer{
+    width: 50%;
+    background-color: #f3f7fb; 
+    color: #0B3C49;
+}
+#context{
+    margin: 20px;
+}
 
 /******************** le fichier index  ********************/
 #btmjouer{
     background-color: #f3f7fb;
     color: #0B3C49;
+    width: 50%;
 }
 #btmcontinuer{
     background-color: #f3f7fb;
     color: #0B3C49;
+    width: 50%;
+}
+.namegame{
+    color: #f3f7fb; 
+    font-family: 'Quicksand', sans-serif; 
+    margin-bottom: 30%;
+}
+.bodyindex{
+    background: #0B3C49;
 }
 
 /********************* le fichier level ******************************/
@@ -84,6 +101,10 @@ li a{
     float: right;
     margin-top: 1.5%;
 }
+#top-menu{
+    background-color:#0B3C49; 
+    width: 67%;
+}
 /********** card-body *************/
 .card-title {
     font-family: 'Quicksand', sans-serif;
@@ -116,6 +137,10 @@ li a{
 }
 .textegagner{
     color: #0B3C49;
+}
+.imagecontainer{
+    
+    position: relative;
 }
 /********** card-footer ***********/
 .card-footer{

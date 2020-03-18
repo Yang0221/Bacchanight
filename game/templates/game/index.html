@@ -19,15 +19,15 @@
 
 {% block body %}
 {% include 'layouts/_nav.html' %}
-<body style="background: #0B3C49;">
+<body class="bodyindex">
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 text-center">
                 <img src="{% static 'images/header/header_image.png' %}">
-                <h3 style="color: #f3f7fb; font-family: 'Quicksand', sans-serif; margin-bottom: 30%;" >Trouve moi !</h3>
-                <a style="width: 50%;" href="{% url 'game:form_user' %}" id="btmjouer" class="btn btn btn-lg" role="button" aria-pressed="true">JOUER</a></br></br>
-                <a style="width: 50%;"href="#" id="btmcontinuer" class="btn btn btn-lg" role="button" aria-pressed="true">CONTINUER</a>
+                <h3 class="namegame" >Trouve moi !</h3>
+                <a href="{% url 'game:form_user' %}" id="btmjouer" class="btn btn btn-lg" role="button" aria-pressed="true">JOUER</a></br></br>
+                <a href="#" id="btmcontinuer" class="btn btn btn-lg" role="button" aria-pressed="true">CONTINUER</a>
             </div>
             <div class="col-md-4"></div>
         </div>
