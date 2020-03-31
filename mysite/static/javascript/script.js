@@ -14,6 +14,7 @@ function check(event) {
     scaleX = width / 100;
     scaleY = height / 100;
 
+    // controle si le clic correspond à un détail
     var num = -1;
     for (var i = 0; i < nb_level; i++) {
         if ((x >= left + (tab[i].x * scaleX)) &&
@@ -24,7 +25,11 @@ function check(event) {
             break;
         }
     }
+
+
+    // check le détail correct
     if (num > -1 && num < nb_level) {
+        //AJAX pas fonctionnel
         /*$.ajax({
             type : "POST",
             url : "/check_detail",
@@ -36,8 +41,7 @@ function check(event) {
         $('.details div:nth-child(' + (num + 1) + ') img').addClass("check");
     }
 
-   
-
+    // check si le niveau est fini
     var end = true;
     for (var i = 0; i < nb_level; i++) {
         if (tab[i].checked == false) {

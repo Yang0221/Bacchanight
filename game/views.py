@@ -7,9 +7,11 @@ from django.http import Http404
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 
+#Page d"accueil à revoir
 def index(request):
     return render(request , 'game/index.html', {'levels' : Level.objects.all()})
 
+# Affiche un niveau
 def show(request , id):
     try:
         level = Level.objects.get(id=id)
@@ -20,12 +22,15 @@ def show(request , id):
         raise Http404(id)
     return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player[0]})
 
+# Affiche le formulaire pour commencer une partie (form_user.html avec bouton commencer)
 def form_user_start(request):
     return render(request , 'game/form_user.html', {'start' :  'add_user' })
 
+# Affiche le formulaire pour reprednre une partie (form_user.html avec bouton continuer)
 def form_user_continue(request):
     return render(request , 'game/form_user.html', {'continue' :  'recover_user' })
 
+# Passage au niveau suivant
 def next_level(request):
     if request.session['player_id'] : 
         player = Player.objects.get(id = request.session['player_id'])
@@ -36,7 +41,7 @@ def next_level(request):
         return HttpResponseRedirect('level/' + str(next_level.id))
     return render(request , 'game/index.html')
 
-
+# Cree un nouveau joueur
 def add_user(request):
     first_level = 1
     if request.POST:
@@ -51,6 +56,7 @@ def add_user(request):
         request.session['player_id'] = new_player.id
         return HttpResponseRedirect('level/' + str(first_level))
 
+# Recupere la partie d'un joueur
 def recover_user(request):
     if request.POST:
         user_pseudo = request.POST.get('pseudo')
@@ -61,11 +67,14 @@ def recover_user(request):
                 level = Level.objects.get(name = p.id_level)
                 return HttpResponseRedirect('level/' + str(level.id))
         return render(request , 'game/form_user.html', {'error' : "Aucune partie ne correspond à ce joueur."})
-        
+
+# Enregistre un ddétail trouvé dans la BDD
+# Marche pas pour le momement (liée au AJAX qui marche pas)       
 def check_detail(request):
     if request.is_ajax and request.POST:
         num = request.POST.get('num')
         player = Player.objects.get(id = request.session['player_id'])
+        print("ok")
         if num == 1 :
             player.detail1 = True
         elif num == 2 :
@@ -80,6 +89,7 @@ def check_detail(request):
         return HttpResponse(json.dumps("ok"), content_type="application/json")
     else:
         raise Http404
+
 
 
 
