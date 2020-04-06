@@ -8,19 +8,19 @@ from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
 
 #Page d"accueil à revoir
+####################TO DO ##############################################################
 def index(request):
     return render(request , 'game/index.html', {'levels' : Level.objects.all()})
 
 # Affiche un niveau
-def show(request , id):
+def show(request):
     try:
-        level = Level.objects.get(id=id)
-        detail = Detail.objects.filter(id_level = id)
-        player = Player.objects.filter(id=request.session['player_id'])
-        print(player)
-    except Level.DoesNotExist:
-        raise Http404(id)
-    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player[0]})
+        player = Player.objects.get(id = request.session['player_id'])
+        level = player.id_level
+        detail = Detail.objects.filter(id_level = level.id)
+    except Level.DoesNotExist or Player.DoesNotExist or Detail.DoesNotExist:
+        return HttpResponseRedirect('/')
+    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player})
 
 # Affiche le formulaire pour commencer une partie (form_user.html avec bouton commencer)
 def form_user_start(request):
@@ -32,13 +32,13 @@ def form_user_continue(request):
 
 # Passage au niveau suivant
 def next_level(request):
-    if request.session['player_id'] : 
+    if request.session['player_id'] :
         player = Player.objects.get(id = request.session['player_id'])
         player_level = player.id_level
         next_level = Level.objects.get(id = (player_level.id)+1 )
         player.id_level = next_level
         player.save()
-        return HttpResponseRedirect('level/' + str(next_level.id))
+        return HttpResponseRedirect('level')
     return render(request , 'game/index.html')
 
 # Cree un nouveau joueur
@@ -54,7 +54,7 @@ def add_user(request):
         new_player = Player(login = new_pseudo, id_level = level)
         new_player.save()
         request.session['player_id'] = new_player.id
-        return HttpResponseRedirect('level/' + str(first_level))
+        return HttpResponseRedirect('level')
 
 # Recupere la partie d'un joueur
 def recover_user(request):
@@ -65,11 +65,11 @@ def recover_user(request):
             if user_pseudo == p.login:
                 request.session['player_id'] = p.id
                 level = Level.objects.get(name = p.id_level)
-                return HttpResponseRedirect('level/' + str(level.id))
+                return HttpResponseRedirect('level')
         return render(request , 'game/form_user.html', {'error' : "Aucune partie ne correspond à ce joueur."})
 
 # Enregistre un ddétail trouvé dans la BDD
-# Marche pas pour le momement (liée au AJAX qui marche pas)       
+# Marche pas pour le momement (liée au AJAX qui marche pas)
 def check_detail(request):
     if request.is_ajax and request.POST:
         num = request.POST.get('num')
@@ -89,8 +89,3 @@ def check_detail(request):
         return HttpResponse(json.dumps("ok"), content_type="application/json")
     else:
         raise Http404
-
-
-
-
-    

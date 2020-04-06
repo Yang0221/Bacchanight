@@ -5,14 +5,14 @@
 <script type="text/javascript">
     // mise en place du tableau qui récupère toutes les infos sur les détails
     var tab = [];
-    document.addEventListener("DOMContentLoaded", function(event) { 
+    document.addEventListener("DOMContentLoaded", function(event) {
         var details = [], i = 0;
 
-        details[0] = "{{player.detail1}}" == "True" ? true : false;  
-        details[1] = "{{player.detail2}}" == "True" ? true : false;  
-        details[2] = "{{player.detail3}}" == "True" ? true : false;  
-        details[3] = "{{player.detail4}}" == "True" ? true : false;  
-        details[4] = "{{player.detail5}}" == "True" ? true : false;   
+        details[0] = "{{player.detail1}}" == "True" ? true : false;
+        details[1] = "{{player.detail2}}" == "True" ? true : false;
+        details[2] = "{{player.detail3}}" == "True" ? true : false;
+        details[3] = "{{player.detail4}}" == "True" ? true : false;
+        details[4] = "{{player.detail5}}" == "True" ? true : false;
 
         {% for d in detail %}
             tab.push({x : {{d.position_x}}, y : {{d.position_y}}, height: {{d.height}}, width: {{d.width}}, checked : details[i] });
@@ -21,11 +21,10 @@
         for (let i = 0; i < 5; i++) {
             if (tab[i].checked == true) {
                 $('.details div:nth-child(' + (i + 1) + ') img').addClass("check");
-            }  
+            }
         }
     });
-   
-</script> 
+</script>
  <script src="{% static 'javascript/script.js' %}"></script>
 {% endblock %}
 
@@ -34,7 +33,7 @@
 {% block nav %}{% endblock %}
 {% block content %}
 
-    <div class="container" id="game_container"> 
+    <div class="container" id="game_container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
