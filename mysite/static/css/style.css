@@ -46,7 +46,7 @@ li a{
 }
 .jouer{
     width: 50%;
-    background-color: #f3f7fb; 
+    background-color: #f3f7fb;
     color: #0B3C49;
 }
 #context{
@@ -65,8 +65,8 @@ li a{
     width: 50%;
 }
 .namegame{
-    color: #f3f7fb; 
-    font-family: 'Quicksand', sans-serif; 
+    color: #f3f7fb;
+    font-family: 'Quicksand', sans-serif;
     margin-bottom: 30%;
 }
 .bodyindex{
@@ -75,8 +75,183 @@ li a{
 
 /********************* le fichier level ******************************/
 
+.game_body {
+  height: 100vh;
+  width: 100 vw;
+  position :absolute;
+}
+.nav {
+  height: 8vh;
+  background-color: #0B3C49;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 2.3em;
+  color: white;
+}
+
+.nav-star {
+  width: 10vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-star p {
+  margin-bottom: 0px;
+}
+
+.nav-star i {
+  margin-top: 0.4rem;
+}
+
+.nav-title {
+  width : 50vw;
+}
+
+.main {
+  height : 67vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main-title {
+   height : 8vh;
+   display: flex;
+   justify-content : center;
+   align-items : center;
+}
+
+.title{
+   font-size: 2.2em;
+   text-transform: uppercase;
+   font-family: 'Quicksand', sans-serif;
+   text-align : center;
+   width : 80vw;
+}
+
+.main-image {
+  width: 95vw;
+  height: 60vh;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+}
+
+.main-image img {
+  max-width : 95vw;
+  max-height : 58vh;
+}
+
+.main-image-portrait {
+  height: 100%;
+  width: auto;
+}
+
+.main-image-landscape {
+  width: 100%;
+  height: auto;
+}
+
+.footer {
+  height : 25vh;
+  background: #f3f7fb;
+}
+
+.details {
+  display : flex;
+  justify-content : space-evenly;
+  align-items : center;
+  flex-wrap : wrap;
+}
+
+.details img {
+  height : 11vh;
+  width : auto;
+  margin-left: 1vw;
+}
+
+.indice {
+  position: absolute;
+  top: 8vh;
+  left: 0vw;
+  height: 50vh;
+  background-color: #0b3c49;
+  color: white;
+
+}
+
+.indice p {
+  width: 100vw;
+  height : 8vh;
+  padding: 1vh;
+  font-size: 2em;
+}
+
+.indice div {
+  height : 30vh;
+}
+
+.hide {
+  display : none;
+}
+
+.hide-button {
+  font-size : 2em;
+  position: relative;
+  top: 1vw;
+  left: 95vw;
+}
+
+.next-level {
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
+  background: white;
+  height: 25vh;
+  width: 80vw;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.next-level h3{
+  font-size: 5em;
+  text-transform: uppercase;
+}
+
+.next-level a {
+  border-radius: .25rem;
+}
+
+.show {
+  display : block;
+}
+
+.help {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+}
+
+.help-content {
+  padding : 5vh;
+}
+
+
+
+
+
+
+
+
+/************************* ancien css ******************/
 /********** card-header *************/
-div.col-md-4{
+/*div.col-md-4{
     padding-right: 0px;
     padding-left: 0px;
     padding-bottom: 0px;
@@ -117,11 +292,11 @@ div.col-md-4{
     margin-top: 1.5%;
 }
 #top-menu{
-    background-color:#0B3C49; 
+    background-color:#0B3C49;
     width: 67%;
-}
+}*/
 /********** card-body *************/
-.card-title {
+/*.card-title {
     font-family: 'Quicksand', sans-serif;
     text-transform: uppercase;
 }
@@ -133,7 +308,7 @@ div.col-md-4{
 }
 .check{
     border: solid 5px #c9e265;
-    
+
 }
 #nextlevel{
     display: none;
@@ -155,25 +330,25 @@ div.col-md-4{
     color: #0B3C49;
 }
 .imagecontainer{
-    
+
     position: relative;
-}
+}*/
 /********** card-footer ***********/
-.card-footer{
+/*.card-footer{
     background: #f3f7fb;
 }
 .carde{
     display: inline;
     margin : 2% 2% 2% 2% ;
-}
+}*/
 /*************Pop up *******************/
-#popup {
+/*#popup {
   font-family: 'Quicksand', sans-serif;
   font-size:small;
   color: white;
   background-color: #0B3C49;
   /* width:  70%; */
-  display: none;
+  /*display: none;
   border-style: ridge;
   position: absolute;
   top: -500px;
@@ -198,8 +373,8 @@ div.col-md-4{
    font-size:small;
    color: #0B3C49;
    background-color:#f3f7fb;
-   /* width:  100%; */
-   display: none;
+   /*width:  100%; */
+   /*display: none;
    border-style: ridge;
    position: absolute;
    top: -370px;
@@ -215,4 +390,4 @@ div.col-md-4{
 
 #buttons{
      margin-top: 2%;
-}
+} */

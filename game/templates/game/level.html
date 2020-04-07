@@ -23,6 +23,7 @@
                 $('.details div:nth-child(' + (i + 1) + ') img').addClass("check");
             }
         }
+        //////// TODO : ajouter portrait ou paysage  ///////
     });
 </script>
  <script src="{% static 'javascript/script.js' %}"></script>
@@ -33,7 +34,53 @@
 {% block nav %}{% endblock %}
 {% block content %}
 
-    <div class="container" id="game_container">
+  <div class="game_body">
+    <div class="nav">
+      <div class="nav-star">
+        <p>{{player.nb_stars}}</p>
+        <i class="fas fa-star" ></i>
+      </div>
+
+      <h3 class="nav-title">{{level.world.name}}</h3>
+      <i class="far fa-question-circle" onclick="popUp('.help')"></i>
+      <i onclick="popUp('.indice')"  class="fas fa-lightbulb"></i>
+    </div>
+    <div class="main">
+      <div class="main-title">
+          <h3 class="title">{{level.name}}</h3>
+      </div>
+      <div class="main-image">
+          <img class="painting" src="{% static 'images/' %}{{level.image}}" onclick="check(event)">
+      </div>
+    </div>
+    <div class="footer details">
+      {% for d in detail %}
+        <img class="detail-image" src="{% static 'images/' %}{{d.image}}">
+      {% endfor %}
+    </div>
+    <div class="indice hide popup">
+      <i class="fas fa-angle-up hide-button" onclick="popUp('.indice')"></i>
+      <p class="title">Indices</p>
+      <div class="details">
+        {% for d in detail %}
+          <img src="{% static 'images/' %}{{d.image}}">
+        {% endfor %}
+      </div>
+    </div>
+    <div class="next-level hide popup">
+        <h3>Gagné !</h3>
+        <a href="{% url 'game:next_level' %}">Niveau suivant</a>
+    </div>
+    <div class="help hide">
+      <i class="fas fa-times hide-button" onclick="popUp('.help')"></i>
+      <div class="help-content">
+        <h3>Règle du jeu<h3>
+        <p> Message d'aide<p>
+      </div>
+    </div>
+  </div>
+
+    <!-- <div class="container" id="game_container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
@@ -68,20 +115,20 @@
             <div class="col-md-4"></div>
         </div>
         <!-- indice à mettre ailleurs -->
-        <div class="row">
-            <div class="col-md-4"></div>
+        <!-- <div class="row"> -->
+            <!-- <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div id="popup">
                     <div class="card-body text-center " >
                       <i id="close"class="far fa-window-close" onclick="closePopUpClue()"></i>
                       <p class=" text-center">Choisir le détail</p>
                       <!--For d in notFoundDetails-->
-                      {% for d in detail %}
+                      <!-- {% for d in detail %}
                         <div class="carde" ><img class="detimg" src="{% static 'images/' %}{{d.image}}" ></div>
-                      {% endfor %}
+                      {% endfor %} -->
                       <!--div id="clueText"> Tu n'as pas besoin d'aide. <br> Ouvre bien tes yeux.</div-->
 
-                      <div class="row " id="clueText">
+                      <!-- <div class="row " id="clueText">
                           <i id="close"class="far fa-window-close" onclick="CloseClueText()"></i>
                           <div >Tu n'as pas besoin d'aide. <br> Ouvre bien tes yeux.</div>
                       </div>
@@ -98,5 +145,5 @@
                 </div>
             </div>
         </div>
-  </div>
+  </div> -->
 {% endblock content %}
