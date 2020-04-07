@@ -31,5 +31,11 @@ class Detail(models.Model):
 class World(models.Model):
     name = models.CharField(max_length = 255)
 
+class Clue(models.Model):
+    name = models.CharField(max_length = 255)
+    content = models.TextField()
+    id_detail = models.ForeignKey('Detail', on_delete=models.CASCADE)
+    
+    
     def __str__(self):
         return self.name
