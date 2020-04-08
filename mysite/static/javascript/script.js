@@ -1,6 +1,17 @@
-function check(event) {
-    var painting = document.getElementsByClassName('painting')[0];
+var isClickable = true;
 
+function check(event) {
+
+    //Verifie si le nombre de click est atteint
+    checkClickNumber();
+    
+    if (isClickable) 
+        checkClick();
+
+}
+
+function checkClick() {
+    var painting = document.getElementsByClassName('painting')[0];
 
     var x = event.clientX; // x de la souris
     var y = event.clientY; // y de la souris
@@ -53,6 +64,7 @@ function check(event) {
     for (var i = 0; i < nb_detail; i++) {
         if (tab[i].checked == false) {
             end = false;
+            break;
         }
     }
 
@@ -61,7 +73,14 @@ function check(event) {
     }
 }
 
-
+function checkClickNumber() {
+    //Verifie si le nombre de click est atteint
+    click--;
+    if (click < 0) {
+        isClickable = false;
+        setTimeout(() => { isClickable = true; click = 15 ; }, 10000);
+    }
+}
 
 function popUp(obj){
   if($(obj).hasClass('show')){
