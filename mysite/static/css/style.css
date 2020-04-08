@@ -242,7 +242,9 @@ li a{
   padding : 5vh;
 }
 
-
+.check{
+    border: solid 0.75rem #c9e265;
+}
 
 
 
@@ -306,10 +308,7 @@ li a{
 #painting{
     filter : blur(2px);
 }
-.check{
-    border: solid 5px #c9e265;
 
-}
 #nextlevel{
     display: none;
     background-color:#f3f7fb;
