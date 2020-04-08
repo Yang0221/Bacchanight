@@ -18,6 +18,9 @@ class Player(models.Model):
     detail3 = models.BooleanField(default=False)
     detail4 = models.BooleanField(default=False)
     detail5 = models.BooleanField(default=False)
+    currentClick = models.IntegerField(default=0)
+    totalClick = models.IntegerField(default=0)
+
 
 
 class Detail(models.Model):
@@ -35,7 +38,7 @@ class Clue(models.Model):
     name = models.CharField(max_length = 255)
     content = models.TextField()
     id_detail = models.ForeignKey('Detail', on_delete=models.CASCADE)
-    
-    
+
+
     def __str__(self):
         return self.name
