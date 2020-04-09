@@ -1,12 +1,15 @@
 var isClickable = true;
+var blockingNumber = 0;
 
 function check(event) {
-
-    //Verifie si le nombre de click est atteint
-    checkClickNumber();
     
-    if (isClickable) 
+    if (isClickable) {
+        //Verifie si le nombre de click est atteint
+        checkClickNumber();
+
         checkClick();
+    }
+        
 
 }
 
@@ -77,8 +80,21 @@ function checkClickNumber() {
     //Verifie si le nombre de click est atteint
     click--;
     if (click < 0) {
+        blockingNumber++;
         isClickable = false;
-        setTimeout(() => { isClickable = true; click = 15 ; }, 10000);
+        setTimeout(() => { isClickable = true; click = 15 ; }, blockingNumber*10000);
+        
+        var secondsLeft = blockingNumber * 10;
+        var levelName = document.getElementById('level_top_title').textContent;
+        var interval = setInterval(function() {
+            document.getElementById('level_top_title').innerHTML = --secondsLeft;
+        
+            if (secondsLeft <= 0)
+            {
+               document.getElementById('level_top_title').innerHTML = levelName;
+               clearInterval(interval);
+            }
+        }, 1000);
     }
 }
 

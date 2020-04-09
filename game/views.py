@@ -53,7 +53,7 @@ def add_user(request):
             if new_pseudo == p.login:
                 return render(request , 'game/form_user.html', {'error' : "Ce pseudo est déjà utilisé."})
         level = Level.objects.get(id=first_level)
-        new_player = Player(login = new_pseudo, id_level = level, nb_stars  = 3, time = 15)
+        new_player = Player(login = new_pseudo, id_level = level, nb_stars  = 3, currentClick = 15)
         new_player.save()
         request.session['player_id'] = new_player.id
         return HttpResponseRedirect('level')
