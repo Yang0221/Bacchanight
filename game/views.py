@@ -3,6 +3,7 @@ from .models import Level
 from .models import World
 from .models import Detail
 from .models import Player
+from .models import Clue
 from django.http import Http404
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
@@ -18,9 +19,13 @@ def show(request):
         player = Player.objects.get(id = request.session['player_id'])
         level = player.id_level
         detail = Detail.objects.filter(id_level = level.id)
+        i = 0
+        for d in detail:
+            d.clue = Clue.objects.get(id = d.id).content
+
     except Level.DoesNotExist or Player.DoesNotExist or Detail.DoesNotExist:
         return HttpResponseRedirect('/')
-    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player})
+    return render(request , 'game/level.html', { 'level' : level, 'detail' : detail, 'player' : player })
 
 # Affiche le formulaire pour commencer une partie (form_user.html avec bouton commencer)
 def form_user_start(request):

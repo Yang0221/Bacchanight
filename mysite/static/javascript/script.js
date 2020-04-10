@@ -2,14 +2,14 @@ var isClickable = true;
 var blockingNumber = 0;
 
 function check(event) {
-    
+
     if (isClickable) {
         //Verifie si le nombre de click est atteint
         checkClickNumber();
 
         checkClick();
     }
-        
+
 
 }
 
@@ -83,12 +83,12 @@ function checkClickNumber() {
         blockingNumber++;
         isClickable = false;
         setTimeout(() => { isClickable = true; click = 15 ; }, blockingNumber*10000);
-        
+
         var secondsLeft = blockingNumber * 10;
         var levelName = document.getElementById('level_top_title').textContent;
         var interval = setInterval(function() {
             document.getElementById('level_top_title').innerHTML = --secondsLeft;
-        
+
             if (secondsLeft <= 0)
             {
                document.getElementById('level_top_title').innerHTML = levelName;
@@ -109,27 +109,32 @@ function popUp(obj){
 
 }
 
+function displayClue(index){
+  //TODO enlever ancienne valeur + affichage
+  $('.clue').append('<p class="value">' + tab[index].clue + '</p>')
+}
+
 ////////    TODO : une seule fonction popup    //////////
-function openPopUpClue() {
-    document.getElementById('popup').style.display = 'block';
-}
-
-function closePopUpClue() {
-    document.getElementById('popup').style.display = 'none';
-}
-
-function OpenClueText() {
-    document.getElementById('clueText').style.display = 'block';
-}
-
-function CloseClueText() {
-    document.getElementById('clueText').style.display = 'none';
-}
-
-function OpenNoCluePopUp() {
-    document.getElementById('noClueAvalaible').style.display = 'block';
-}
-
-function CloseNoCluePopUp() {
-    document.getElementById('noClueAvalaible').style.display = 'none';
-}
+// function openPopUpClue() {
+//     document.getElementById('popup').style.display = 'block';
+// }
+//
+// function closePopUpClue() {
+//     document.getElementById('popup').style.display = 'none';
+// }
+//
+// function OpenClueText() {
+//     document.getElementById('clueText').style.display = 'block';
+// }
+//
+// function CloseClueText() {
+//     document.getElementById('clueText').style.display = 'none';
+// }
+//
+// function OpenNoCluePopUp() {
+//     document.getElementById('noClueAvalaible').style.display = 'block';
+// }
+//
+// function CloseNoCluePopUp() {
+//     document.getElementById('noClueAvalaible').style.display = 'none';
+// }

@@ -5,7 +5,7 @@
 <script type="text/javascript">
     // mise en place de la variable qui contient le nombre de click restant
     var click = {{player.currentClick}} ;
-    
+
     // mise en place du tableau qui récupère toutes les infos sur les détails
     var tab = [];
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -18,7 +18,7 @@
         details[4] = "{{player.detail5}}" == "True" ? true : false;
 
         {% for d in detail %}
-            tab.push({x : {{d.position_x}}, y : {{d.position_y}}, height: {{d.height}}, width: {{d.width}}, checked : details[i] });
+            tab.push({x : {{d.position_x}}, y : {{d.position_y}}, height: {{d.height}}, width: {{d.width}}, checked : details[i], clue : "{{d.clue}}" });
             i += 1;
         {% endfor %}
         for (let i = 0; i < 5; i++) {
@@ -46,7 +46,7 @@
 
       <h3 class="nav-title">{{level.world.name}}</h3>
       <i class="far fa-question-circle" onclick="popUp('.help')"></i>
-      <i onclick="popUp('.indice')"  class="fas fa-lightbulb"></i>
+      <i onclick="popUp('.clues')"  class="fas fa-lightbulb"></i>
     </div>
     <div class="main">
       <div class="main-title">
@@ -61,13 +61,16 @@
         <img class="detail-image" src="{% static 'images/' %}{{d.image}}">
       {% endfor %}
     </div>
-    <div class="indice hide popup">
-      <i class="fas fa-angle-up hide-button" onclick="popUp('.indice')"></i>
+    <div class="clues hide popup">
+      <i class="fas fa-angle-up hide-button" onclick="popUp('.clues')"></i>
       <p class="title">Indices</p>
       <div class="details">
         {% for d in detail %}
-          <img src="{% static 'images/' %}{{d.image}}">
+          <img src="{% static 'images/' %}{{d.image}}" onclick="displayClue({% cycle 0 1 2 3  %})">
         {% endfor %}
+      </div>
+      <div class="clue">
+
       </div>
     </div>
     <div class="next-level hide popup">

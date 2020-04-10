@@ -172,7 +172,7 @@ li a{
   margin-left: 1vw;
 }
 
-.indice {
+.clues {
   position: absolute;
   top: 8vh;
   left: 0vw;
@@ -182,14 +182,14 @@ li a{
 
 }
 
-.indice p {
+.clues p {
   width: 100vw;
   height : 8vh;
   padding: 1vh;
   font-size: 2em;
 }
 
-.indice div {
+.clues div {
   height : 30vh;
 }
 
