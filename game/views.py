@@ -43,7 +43,7 @@ def next_level(request):
         next_level = Level.objects.get(id = (player_level.id)+1 )
         player.id_level = next_level
         player.totalClick = player.totalClick + player.currentClick
-        player.currentClick = 0
+        player.currentClick = 15
         player.save()
         return HttpResponseRedirect('level')
     return render(request , 'game/index.html')
