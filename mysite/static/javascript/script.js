@@ -1,16 +1,13 @@
 var isClickable = true;
 var blockingNumber = 0;
+var nb_detail = 5;
 
 function check(event) {
-
     if (isClickable) {
         //Verifie si le nombre de click est atteint
         checkClickNumber();
-
         checkClick();
     }
-
-
 }
 
 function checkClick() {
@@ -25,8 +22,6 @@ function checkClick() {
     var viewportOffset = painting.getBoundingClientRect();
     var top = viewportOffset.top; // y du point haut-gauche du cadre
     var left = viewportOffset.left; // x du point haut-gauche du cadre
-
-    var nb_detail = 5;
 
     scaleX = width / 100;
     scaleY = height / 100;
@@ -57,8 +52,6 @@ function checkClick() {
 
         tab[num].checked = true;
         var position = num + 1;
-        console.log('true ' + position);
-        console.log($('.footer detail-image:nth-child(' + position + ')'));
         $('.footer .detail-image:nth-child('+ position +')').addClass('check');
     }
 
@@ -109,9 +102,17 @@ function popUp(obj){
 
 }
 
+function checkClues(){
+  for (var i = 0; i < nb_detail; i++) {
+    if(tab[i].checked == true){
+      $('.clues .details img:nth-child('+ (i+1) +')').addClass('hide');
+    }
+  }
+}
+
 function displayClue(index){
   //TODO enlever ancienne valeur + affichage
-  $('.clue').append('<p class="value">' + tab[index].clue + '</p>')
+  $('.clue .value').text(tab[index].clue)
 }
 
 ////////    TODO : une seule fonction popup    //////////

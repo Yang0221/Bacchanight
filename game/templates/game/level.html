@@ -46,7 +46,7 @@
 
       <h3 class="nav-title">{{level.world.name}}</h3>
       <i class="far fa-question-circle" onclick="popUp('.help')"></i>
-      <i onclick="popUp('.clues')"  class="fas fa-lightbulb"></i>
+      <i onclick="popUp('.clues'); checkClues()"  class="fas fa-lightbulb"></i>
     </div>
     <div class="main">
       <div class="main-title">
@@ -70,7 +70,7 @@
         {% endfor %}
       </div>
       <div class="clue">
-
+        <p class="value"></p>
       </div>
     </div>
     <div class="next-level hide popup">
