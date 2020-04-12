@@ -7,6 +7,8 @@ from .models import Clue
 from django.http import Http404
 from django.shortcuts import redirect
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
+import json
 
 #Page d"accueil à revoir
 ####################TO DO ##############################################################
@@ -44,6 +46,11 @@ def next_level(request):
         player.id_level = next_level
         player.totalClick = player.totalClick + player.currentClick
         player.currentClick = 15
+        player.detail1 = False
+        player.detail2 = False
+        player.detail3 = False
+        player.detail4 = False
+        player.detail5 = False
         player.save()
         return HttpResponseRedirect('level')
     return render(request , 'game/index.html')
@@ -81,16 +88,15 @@ def check_detail(request):
     if request.is_ajax and request.POST:
         num = request.POST.get('num')
         player = Player.objects.get(id = request.session['player_id'])
-        print("ok")
-        if num == 1 :
+        if num == '1' :
             player.detail1 = True
-        elif num == 2 :
+        elif num == '2' :
             player.detail2 = True
-        elif num == 3 :
+        elif num == '3' :
             player.detail3 = True
-        elif num == 4 :
+        elif num == '4' :
             player.detail4 = True
-        elif num == 5 :
+        elif num == '5' :
             player.detail5 = True
         player.save()
         return HttpResponse(json.dumps("ok"), content_type="application/json")

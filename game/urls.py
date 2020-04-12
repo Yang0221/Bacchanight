@@ -11,7 +11,5 @@ urlpatterns = [
     path('add_user', views.add_user, name = "add_user"),
     path('recover_user', views.recover_user, name = "recover_user"),
     path('next_level', views.next_level, name = "next_level"),
-
-    #lié au AJAX
-    #path('check_detail', views.check_detail, name = "check_detail")
+    path('check_detail', views.check_detail, name = "check_detail")
 ]

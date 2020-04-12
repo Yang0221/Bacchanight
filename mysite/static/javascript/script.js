@@ -41,15 +41,12 @@ function checkClick() {
 
     // check le détail correct
     if (num > -1 && num < nb_detail) {
-        //AJAX pas fonctionnel
-        /*$.ajax({
+        $.ajax({
             type : "POST",
-            url : "/check_detail",
+            url : "check_detail",
             dataType: 'json',
             data : { 'num' : num + 1}
-        })*/
-
-
+        })
         tab[num].checked = true;
         var position = num + 1;
         $('.footer .detail-image:nth-child('+ position +')').addClass('check');
@@ -111,9 +108,43 @@ function checkClues(){
 }
 
 function displayClue(index){
-  //TODO enlever ancienne valeur + affichage
   $('.clue .value').text(tab[index].clue)
 }
+
+
+//fonctions pour gérer les cookies
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+
+
+$( document ).ready(function() {
+  $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", csrftoken);
+          }
+      }
+  });
+});
 
 ////////    TODO : une seule fonction popup    //////////
 // function openPopUpClue() {
