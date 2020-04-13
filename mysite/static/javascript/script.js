@@ -1,16 +1,18 @@
 var isClickable = true;
-var blockingNumber = 0;
+var coefficientNumber = 0;
 var nb_detail = 5;
 var pauseNumber = 15;
 
+//Appelée à chaque click sur le tableau
 function check(event) {
     if (isClickable) {
-        //Verifie si le nombre de click est atteint
+        //Verifie si le nombre de clics autorisés est atteint
         checkClickNumber();
         checkClickPosition();
     }
 }
 
+//Vérifie si un détail à été trouvé
 function checkClickPosition() {
     var painting = document.getElementsByClassName('painting')[0];
 
@@ -66,8 +68,8 @@ function checkClickPosition() {
     }
 }
 
+//Ajoute un clic au compteur et vérifie si le nombre de click n'a pas été atteint
 function checkClickNumber() {
-
     click++;
     $.ajax({
         type : "POST",
@@ -77,7 +79,7 @@ function checkClickNumber() {
     })
 
     if (click >= pauseNumber) {
-        blockingNumber++;
+        coefficientNumber++;
         isClickable = false;
         setTimeout(() => {
           isClickable = true;
@@ -86,30 +88,26 @@ function checkClickNumber() {
           } else {
             pauseNumber = pauseNumber + 5 ;
           }
-        }, blockingNumber*10000);
+        }, coefficientNumber*10000);
 
-        console.log('pauseNumber : ' + pauseNumber);
-        console.log('blockingNumber : ' + blockingNumber);
-
-        var secondsLeft = blockingNumber * 10;
+        var secondsLeft = coefficientNumber * 10;
         $('.timer').addClass('show');
         $('.timer').removeClass('hide');
         $('.timer p').text(secondsLeft);
         var interval = setInterval(function() {
              secondsLeft --;
             $('.timer p').text(secondsLeft);
-            if (secondsLeft <= 0)
-            {
+            if (secondsLeft <= 0) {
               $('.timer p').text('');
               $('.timer').addClass('hide');
               $('.timer').removeClass('show');
-               //document.getElementById('level_top_title').innerHTML = levelName;
                clearInterval(interval);
             }
         }, 1000);
     }
 }
 
+//Affiche ou cache les popups
 function popUp(obj){
   if($(obj).hasClass('show')){
     $(obj).removeClass('show');
@@ -118,9 +116,9 @@ function popUp(obj){
     $('.popup').removeClass('show');
     $(obj).addClass('show');
   }
-
 }
 
+//Cache les indices des détails qui ont déjà été trouvé
 function checkClues(){
   for (var i = 0; i < nb_detail; i++) {
     if(tab[i].checked == true){
@@ -129,6 +127,7 @@ function checkClues(){
   }
 }
 
+// Affiche l'indice demandé 
 function displayClue(index){
   $('.clue .value').text(tab[index].clue)
 }
