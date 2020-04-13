@@ -45,7 +45,7 @@ def next_level(request):
         next_level = Level.objects.get(id = (player_level.id)+1 )
         player.id_level = next_level
         player.totalClick = player.totalClick + player.currentClick
-        player.currentClick = 15
+        player.currentClick = 0
         player.detail1 = False
         player.detail2 = False
         player.detail3 = False
@@ -65,7 +65,7 @@ def add_user(request):
             if new_pseudo == p.login:
                 return render(request , 'game/form_user.html', {'error' : "Ce pseudo est déjà utilisé."})
         level = Level.objects.get(id=first_level)
-        new_player = Player(login = new_pseudo, id_level = level, nb_stars  = 3, currentClick = 15)
+        new_player = Player(login = new_pseudo, id_level = level, nb_stars  = 3)
         new_player.save()
         request.session['player_id'] = new_player.id
         return HttpResponseRedirect('level')
@@ -98,6 +98,15 @@ def check_detail(request):
             player.detail4 = True
         elif num == '5' :
             player.detail5 = True
+        player.save()
+        return HttpResponse(json.dumps("ok"), content_type="application/json")
+    else:
+        raise Http404
+
+def new_click(request):
+    if request.is_ajax and request.POST:
+        player = Player.objects.get(id = request.session['player_id'])
+        player.currentClick = player.currentClick + 1;
         player.save()
         return HttpResponse(json.dumps("ok"), content_type="application/json")
     else:

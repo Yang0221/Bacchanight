@@ -1,16 +1,17 @@
 var isClickable = true;
 var blockingNumber = 0;
 var nb_detail = 5;
+var pauseNumber = 15;
 
 function check(event) {
     if (isClickable) {
         //Verifie si le nombre de click est atteint
         checkClickNumber();
-        checkClick();
+        checkClickPosition();
     }
 }
 
-function checkClick() {
+function checkClickPosition() {
     var painting = document.getElementsByClassName('painting')[0];
 
     var x = event.clientX; // x de la souris
@@ -37,7 +38,6 @@ function checkClick() {
             break;
         }
     }
-
 
     // check le détail correct
     if (num > -1 && num < nb_detail) {
@@ -67,21 +67,43 @@ function checkClick() {
 }
 
 function checkClickNumber() {
-    //Verifie si le nombre de click est atteint
-    click--;
-    if (click < 0) {
+
+    click++;
+    $.ajax({
+        type : "POST",
+        url : "new_click",
+        dataType: 'json',
+        data : { 'click' : 1}
+    })
+
+    if (click >= pauseNumber) {
         blockingNumber++;
         isClickable = false;
-        setTimeout(() => { isClickable = true; click = 15 ; }, blockingNumber*10000);
+        setTimeout(() => {
+          isClickable = true;
+          if(pauseNumber == 15){
+            pauseNumber = pauseNumber + 10;
+          } else {
+            pauseNumber = pauseNumber + 5 ;
+          }
+        }, blockingNumber*10000);
+
+        console.log('pauseNumber : ' + pauseNumber);
+        console.log('blockingNumber : ' + blockingNumber);
 
         var secondsLeft = blockingNumber * 10;
-        var levelName = document.getElementById('level_top_title').textContent;
+        $('.timer').addClass('show');
+        $('.timer').removeClass('hide');
+        $('.timer p').text(secondsLeft);
         var interval = setInterval(function() {
-            document.getElementById('level_top_title').innerHTML = --secondsLeft;
-
+             secondsLeft --;
+            $('.timer p').text(secondsLeft);
             if (secondsLeft <= 0)
             {
-               document.getElementById('level_top_title').innerHTML = levelName;
+              $('.timer p').text('');
+              $('.timer').addClass('hide');
+              $('.timer').removeClass('show');
+               //document.getElementById('level_top_title').innerHTML = levelName;
                clearInterval(interval);
             }
         }, 1000);
@@ -145,28 +167,3 @@ $( document ).ready(function() {
       }
   });
 });
-
-////////    TODO : une seule fonction popup    //////////
-// function openPopUpClue() {
-//     document.getElementById('popup').style.display = 'block';
-// }
-//
-// function closePopUpClue() {
-//     document.getElementById('popup').style.display = 'none';
-// }
-//
-// function OpenClueText() {
-//     document.getElementById('clueText').style.display = 'block';
-// }
-//
-// function CloseClueText() {
-//     document.getElementById('clueText').style.display = 'none';
-// }
-//
-// function OpenNoCluePopUp() {
-//     document.getElementById('noClueAvalaible').style.display = 'block';
-// }
-//
-// function CloseNoCluePopUp() {
-//     document.getElementById('noClueAvalaible').style.display = 'none';
-// }
