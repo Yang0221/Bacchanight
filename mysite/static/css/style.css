@@ -69,6 +69,7 @@ body {
   height: 100vh;
   width: 100vw;
   position :absolute;
+  overflow: hidden;
 }
 
 .nav {
@@ -83,14 +84,7 @@ body {
 .nav-star {
   display: flex;
   justify-content: space-between;
-}
-
-.nav-star p {
-  margin-bottom: 0px;
-}
-
-.nav-star i {
-  margin-top: 0.4rem;
+  align-items: center;
 }
 
 .nav-title {
@@ -160,12 +154,12 @@ body {
   height: 50vh;
   background-color: #0b3c49;
   color: white;
+  width : 100vw;
 
 }
 
 .clues p {
   width: 100vw;
-  height : 8vh;
   padding: 1vh;
 }
 
@@ -218,12 +212,12 @@ body {
 }
 
 .help-content {
-  padding : 5vh;
+  padding : 3vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 95vh;
+  height: 90vh;
 }
 
 .check{
@@ -284,6 +278,7 @@ body {
 
 .visitMode {
   display: flex;
+  align-items: center;
   position: absolute;
   top: 2rem;
   left: 2rem;
