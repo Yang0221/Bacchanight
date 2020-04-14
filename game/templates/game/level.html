@@ -42,7 +42,7 @@
   <div class="game_body">
     <div class="nav">
       <div class="nav-star">
-        <h3 class="title">{{player.nb_stars}}</h3>
+        <h3 class="icon">{{player.nb_stars}}</h3>
         <i class="fas fa-star icon" ></i>
       </div>
 
@@ -75,7 +75,7 @@
         {% endfor %}
       </div>
       <div class="clue">
-        <p class="value"></p>
+        <p class="value text"></p>
       </div>
     </div>
     <div class="next-level hide popup">
@@ -84,30 +84,31 @@
     </div>
     <div class="help hide">
       <i class="fas fa-times hide-button icon" onclick="popUp('.help')"></i>
-      <div class="help-content">
-        <h3>Règle du jeu<h3>
 
-        <p> Je suis caché dans un des tableaux du musée. Pour me trouver, tu devras passer tous les niveaux . Cherche
+      <div class="visitMode">
+        <p class="text">Mode visite</p>
+        <div class="onoffswitch">
+          <input type="checkbox" name="visiteMode" class="onoffswitch-checkbox" id="visitButton" onclick="setVisitMode()">
+          <label class="onoffswitch-label" for="visitButton"></label>
+        </div>
+      </div>
+
+      <div class="help-content">
+        <h3 class="title">Règle du jeu</h3>
+
+        <p class="text"> Je suis caché dans un des tableaux du musée. Pour me trouver, tu devras passer tous les niveaux . Cherche
         sur chaque tableau, les cinq morceaux proposés, en cliquant dessus. Si tu es au musée, active le mode visite. Après
         cinq niveaux, tu plongeras dans un nouveau monde artistique du musée. Tu devras changer de salle si tu y es. </p>
 
 
-        <p>Si tu est bloqué, clique sur <i class="fas fa-lightbulb"></i> pour avoir des indices. Tu les payeras avec les étoiles que tu auras
+        <p class="text">Si tu est bloqué, clique sur <i class="fas fa-lightbulb"></i> pour avoir des indices. Tu les payeras avec les étoiles que tu auras
         récupéré chaque fois que tu retrouves un morceau.</p>
 
         <!-- Mettre un démo -->
         <img id="painting" src="{% static 'images/w1level1.jpg' %}">
 
-        <p> <i class="fas fa-exclamation-triangle" ></i> Attention, au bout de trop de clics consécutifs, tu seras
+        <p class="text"> <i class="fas fa-exclamation-triangle" ></i> Attention, au bout de trop de clics consécutifs, tu seras
         bloqué pendant un certain temps </p>
-
-        <div>
-          <p>Mode visite</p>
-          <div class="onoffswitch">
-            <input type="checkbox" name="visiteMode" class="onoffswitch-checkbox" id="visitButton" onclick="setVisitMode()">
-            <label class="onoffswitch-label" for="visitButton"></label>
-          </div>
-        </div>
       </div>
     </div>
   </div>
