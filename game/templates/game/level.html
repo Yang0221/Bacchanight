@@ -27,6 +27,8 @@
             }
         }
         //////// TODO : ajouter portrait ou paysage  ///////
+
+        console.log(tab);
     });
 </script>
  <script src="{% static 'javascript/script.js' %}"></script>
@@ -69,7 +71,7 @@
       <p class="title">Indices</p>
       <div class="details">
         {% for d in detail %}
-          <img src="{% static 'images/' %}{{d.image}}" onclick="displayClue({% cycle 0 1 2 3  %})">
+          <img src="{% static 'images/' %}{{d.image}}" onclick="displayClue({% cycle 0 1 2 3 4 %})">
         {% endfor %}
       </div>
       <div class="clue">
