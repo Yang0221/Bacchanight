@@ -10,10 +10,11 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 import json
 
-#Page d"accueil à revoir
-####################TO DO ##############################################################
+BOSS_LEVEL_ID = 35        #a changer quand le vrai level 35 aura été ajout"
+
+# Affiche la page d'accueil
 def index(request):
-    return render(request , 'game/index.html', {'levels' : Level.objects.all()})
+    return render(request , 'game/index.html')
 
 # Affiche un niveau
 def show(request):
@@ -42,7 +43,11 @@ def next_level(request):
     if request.session['player_id'] :
         player = Player.objects.get(id = request.session['player_id'])
         player_level = player.id_level
-        next_level = Level.objects.get(id = (player_level.id)+1 )
+        id = (player_level.id)+1
+        if id == BOSS_LEVEL_ID :
+            return HttpResponseRedirect('boss')             #voir pour la route 
+
+        next_level = Level.objects.get(id = id )
         player.id_level = next_level
         print(player.currentClick)
         if player.currentClick > 15 :
