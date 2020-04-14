@@ -1,41 +1,15 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block title %}Game{% endblock title %}
-<!-- {% block content %} -->
-    <!-- <h1>Game page  |  {{levels|length}} Levels</h1>
-    {% for level in levels %}
-        <article>
-            <a href="{% url 'game:show' level.id%}"><h1>{{level.title}}</h1></a>
-
-            <p>{{level.body}}</p>
-        </article>
-        {% if not forloop.last%}
-            <hr>
-        {% endif %}
-        {% empty %}
-            <p>No level available</p>
-    {% endfor %} -->
-<!-- {% endblock content %} -->
 
 {% block body %}
-{% include 'layouts/_nav.html' %}
-<body class="bodyindex">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4 text-center">
+    <div class="simple-body">
                 <img src="{% static 'images/header/header_image.png' %}">
-
-                <h3 class="namegame" >Trouve moi !</h3>
-                <a href="{% url 'game:form_user_start' %}" id="btmjouer" class="btn btn btn-lg" role="button" aria-pressed="true">JOUER</a></br></br>
-                <a href="{% url 'game:form_user_continue' %}" id="btmcontinuer" class="btn btn btn-lg" role="button" aria-pressed="true">CONTINUER</a>
-
-            </div>
-            <div class="col-md-4"></div>
-        </div>
+                <h3>Trouve moi !</h3>
+                <div class="button-group">
+                  <a href="{% url 'game:form_user_start' %}" class="button button-light" role="button" aria-pressed="true">Jouer</a>
+                  <a href="{% url 'game:form_user_continue' %}" class="button button-light" role="button" aria-pressed="true">Continuer</a>
+                </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+
 {% endblock %}
