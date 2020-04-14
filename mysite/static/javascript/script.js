@@ -127,9 +127,19 @@ function checkClues(){
   }
 }
 
-// Affiche l'indice demandé 
+// Affiche l'indice demandé
 function displayClue(index){
   $('.clue .value').text(tab[index].clue)
+}
+
+//Floute ou non le tavleau
+function setVisitMode(){
+  if($('#visitButton').prop('checked')){
+      $('.painting').addClass('visit');
+  } else {
+    $('.painting').removeClass('visit');
+  }
+
 }
 
 

@@ -1,6 +1,6 @@
 /***************************** general *************************/
 * {
-    font-family:  'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 #nabvarr {
     background-color: #0B3C49;
@@ -74,24 +74,22 @@ li a{
 }
 
 /********************* le fichier level ******************************/
-
 .game_body {
   height: 100vh;
   width: 100vw;
   position :absolute;
 }
+
 .nav {
   height: 8vh;
   background-color: #0B3C49;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 2.3em;
   color: white;
 }
 
 .nav-star {
-  width: 10vw;
   display: flex;
   justify-content: space-between;
 }
@@ -121,14 +119,6 @@ li a{
    display: flex;
    justify-content : center;
    align-items : center;
-}
-
-.title{
-   font-size: 2.2em;
-   text-transform: uppercase;
-   font-family: 'Quicksand', sans-serif;
-   text-align : center;
-   width : 80vw;
 }
 
 .main-image {
@@ -186,7 +176,6 @@ li a{
   width: 100vw;
   height : 8vh;
   padding: 1vh;
-  font-size: 2em;
 }
 
 .clues div {
@@ -198,7 +187,6 @@ li a{
 }
 
 .hide-button {
-  font-size : 2em;
   position: relative;
   top: 1vw;
   left: 95vw;
@@ -217,7 +205,7 @@ li a{
 }
 
 .next-level h3{
-  font-size: 5em;
+
   text-transform: uppercase;
 }
 
@@ -255,9 +243,79 @@ li a{
   align-items: center;
 }
 
-.timer p {
-  font-size: 3rem;
+.visit {
+  filter : blur(4px);
 }
+
+.icon {
+  font-size: xxx-large;
+}
+
+.title {
+  font-size: xx-large;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.main-title .title {
+  font-size: xxx-large;
+}
+
+@media (orientation: landscape){
+  .game_body {
+    width: 50vw;
+    margin-left: 25vw;
+  }
+
+  .title + .main-title .title {
+    font-size : large;
+  }
+
+  .icon {
+    font-size: x-large;
+  }
+  .main-title {
+    width : 25vw;
+  }
+}
+
+
+/****************   mode visite    ******************************/
+
+.onoffswitch {
+    position: relative; width: 60px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 36px; padding: 0; line-height: 36px;
+    border: 2px solid #E3E3E3; border-radius: 36px;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 36px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 22px;
+    border: 2px solid #E3E3E3; border-radius: 36px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #49E845;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #49E845;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px;
+}
+
+
 
 
 
