@@ -1,79 +1,58 @@
-/***************************** general *************************/
+/**************************** general ****************************/
 * {
     font-family: 'Quicksand', sans-serif;
 }
-#nabvarr {
-    background-color: #0B3C49;
-    margin-bottom: 50px;
+
+
+/**************************** home page + formulaire ****************************/
+
+.simple-body {
+  background-color: #0B3C49;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
 }
 
-#game_container{
-    margin: 0 auto;
-    padding: 0;
-    border: 0;
-}
-li a{
-    margin-right: 10px;
-    color: white;
+
+/**************************** button ****************************/
+
+.button {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  padding-right: 1.7rem;
+  padding-left: 1.7rem;
+  font-size: xx-large;
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.show-popup {
-  display : block;
+.button-light {
+  background-color: white;
+  color: #0B3C49;
 }
 
-.hide-popup {
-  display : none;
+.button-dark {
+  background-color: #0B3C49;
+  color: white;
 }
 
-.togle:hover{
-    color:#0B3C49;
-    text-decoration: none;
-    background-color: #f3f7fb;
-    padding: 5px;
-    font-weight:bold;
-    border-radius: 5px;
+.button-group {
+  height: 15vh;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
-/******************** formulaire utilisateur ********************/
-#btmpseudo {
-    background-color: #f3f7fb;
-    color: #0B3C49;
-}
 
-#lblpseud {
-    text-transform: uppercase ;
-    color: #f3f7fb;
-}
-.jouer{
-    width: 50%;
-    background-color: #f3f7fb;
-    color: #0B3C49;
-}
-#context{
-    margin: 20px;
-}
 
-/******************** le fichier index  ********************/
-#btmjouer{
-    background-color: #f3f7fb;
-    color: #0B3C49;
-    width: 50%;
-}
-#btmcontinuer{
-    background-color: #f3f7fb;
-    color: #0B3C49;
-    width: 50%;
-}
-.namegame{
-    color: #f3f7fb;
-    font-family: 'Quicksand', sans-serif;
-    margin-bottom: 30%;
-}
-.bodyindex{
-    background: #0B3C49;
-}
 
-/********************* le fichier level ******************************/
+/**************************** level ****************************/
 .game_body {
   height: 100vh;
   width: 100vw;
@@ -289,7 +268,7 @@ li a{
   text-align: center;
 }
 
-/****************   mode visite    ******************************/
+/****************************   mode visite    ****************************/
 
 .visitMode {
   display: flex;
@@ -301,7 +280,6 @@ li a{
 .visitMode p {
   width : 15vw;
 }
-
 
 .onoffswitch {
     position: relative; width: 60px;
@@ -336,148 +314,3 @@ li a{
 .onoffswitch-checkbox:checked + .onoffswitch-label:before {
     right: 0px;
 }
-
-
-
-
-
-
-/************************* ancien css ******************/
-/********** card-header *************/
-/*div.col-md-4{
-    padding-right: 0px;
-    padding-left: 0px;
-    padding-bottom: 0px;
-    padding-top: 0px;
-}
-.card-header{
-    font-size: 20px;
-}
-#nav{
-    background-color: #0B3C49;
-    color: white;
-}
-#nombre {
-    display: inline;
-    float: left;
-}
-#etoile {
-    display: inline;
-    float: left;
-    margin-top: 1.5%;
-    margin-right: 3%;
-}
-#texte {
-    display: inline;
-    text-transform: uppercase;
-    font-size:small;
-}
-#indice {
-    display: inline;
-    float: right;
-    margin-top: 1.5%;
-}
-
-#question {
-    display: inline;
-    margin-left: 3%;
-    float: right;
-    margin-top: 1.5%;
-}
-#top-menu{
-    background-color:#0B3C49;
-    width: 67%;
-}*/
-/********** card-body *************/
-/*.card-title {
-    font-family: 'Quicksand', sans-serif;
-    text-transform: uppercase;
-}
-.detimg {
-    margin: 2% 2% 2% 2%;
-}
-#painting{
-    filter : blur(2px);
-}
-
-#nextlevel{
-    display: none;
-    background-color:#f3f7fb;
-    border-radius: 3px;
-    position: absolute;
-    top: 180px;
-    left: 29px;
-    right: 32px;
-    padding: 5px;
-}
-#btmsuivant{
-    width: 80%;
-    background-color: #0B3C49;
-    color: #f3f7fb ;
-    padding:5px;
-}
-.textegagner{
-    color: #0B3C49;
-}
-.imagecontainer{
-
-    position: relative;
-}*/
-/********** card-footer ***********/
-/*.card-footer{
-    background: #f3f7fb;
-}
-.carde{
-    display: inline;
-    margin : 2% 2% 2% 2% ;
-}*/
-/*************Pop up *******************/
-/*#popup {
-  font-family: 'Quicksand', sans-serif;
-  font-size:small;
-  color: white;
-  background-color: #0B3C49;
-  /* width:  70%; */
-  /*display: none;
-  border-style: ridge;
-  position: absolute;
-  top: -500px;
-  left: 29px;
-  right: 32px;
-}
-
-#imgclue {
-    margin: 2% 2% 2% 2%;
-}
-
-#clueText {
-    display: none;
-    background: #f3f7fb;
-    color : black;
-    border-style: ridge;
-    margin-top: 2%;
-
-}
-#noClueAvalaible{
-   font-family: 'Quicksand', sans-serif;
-   font-size:small;
-   color: #0B3C49;
-   background-color:#f3f7fb;
-   /*width:  100%; */
-   /*display: none;
-   border-style: ridge;
-   position: absolute;
-   top: -370px;
-   left: 29px;
-   right: 32px;
-}
-#close {
-    display: inline;
-    margin-left: 3%;
-    float: right;
-    margin-top: 1.5%;
-}
-
-#buttons{
-     margin-top: 2%;
-} */
