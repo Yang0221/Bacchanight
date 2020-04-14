@@ -1,6 +1,6 @@
 /**************************** general ****************************/
 * {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -38,7 +38,7 @@ body {
   padding-bottom: 1.2rem;
   padding-right: 1.7rem;
   padding-left: 1.7rem;
-  font-size: xx-large;
+  font-size: 2rem;
   text-transform: uppercase;
   text-align: center;
 }
@@ -238,17 +238,17 @@ body {
 }
 
 .icon {
-  font-size: xxx-large;
+  font-size: 4rem;
 }
 
 .title {
-  font-size: xx-large;
+  font-size: 2rem;
   text-transform: uppercase;
   text-align: center;
 }
 
 .main-title .title {
-  font-size: xxx-large;
+  font-size: 4rem;
 }
 
 @media (orientation: landscape){
@@ -258,11 +258,11 @@ body {
   }
 
   .title + .main-title .title {
-    font-size : large;
+    font-size : 2rem;
   }
 
   .icon {
-    font-size: x-large;
+    font-size: 3rem;
   }
   .main-title {
     width : 25vw;
@@ -270,7 +270,7 @@ body {
 }
 
 .text {
-  font-size: x-large;
+  font-size: 1.5rem;
   text-align: center;
 }
 
