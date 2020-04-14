@@ -44,6 +44,15 @@ def next_level(request):
         player_level = player.id_level
         next_level = Level.objects.get(id = (player_level.id)+1 )
         player.id_level = next_level
+        print(player.currentClick)
+        if player.currentClick > 15 :
+            player.nb_stars = player.nb_stars + 1
+        elif player.currentClick <= 15 and player.currentClick > 10 :
+            player.nb_stars = player.nb_stars + 3
+        elif player.currentClick <= 10 and player.currentClick > 5 :
+            player.nb_stars = player.nb_stars + 6
+        elif player.currentClick == 5 :
+            player.nb_stars = player.nb_stars + 10
         player.totalClick = player.totalClick + player.currentClick
         player.currentClick = 0
         player.detail1 = False
@@ -51,6 +60,7 @@ def next_level(request):
         player.detail3 = False
         player.detail4 = False
         player.detail5 = False
+
         player.save()
         return HttpResponseRedirect('level')
     return render(request , 'game/index.html')
@@ -107,6 +117,15 @@ def new_click(request):
     if request.is_ajax and request.POST:
         player = Player.objects.get(id = request.session['player_id'])
         player.currentClick = player.currentClick + 1;
+        player.save()
+        return HttpResponse(json.dumps("ok"), content_type="application/json")
+    else:
+        raise Http404
+
+def buy_clue(request):
+    if request.is_ajax and request.POST:
+        player = Player.objects.get(id = request.session['player_id'])
+        player.nb_stars = player.nb_stars - 3;
         player.save()
         return HttpResponse(json.dumps("ok"), content_type="application/json")
     else:

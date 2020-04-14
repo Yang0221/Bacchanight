@@ -5,6 +5,7 @@
 <script type="text/javascript">
     // mise en place de la variable qui contient le nombre de click restant
     var click = {{player.currentClick}} ;
+    var stars = {{player.nb_stars}} ;
 
     // mise en place du tableau qui récupère toutes les infos sur les détails
     var tab = [];
@@ -18,7 +19,7 @@
         details[4] = "{{player.detail5}}" == "True" ? true : false;
 
         {% for d in detail %}
-            tab.push({x : {{d.position_x}}, y : {{d.position_y}}, height: {{d.height}}, width: {{d.width}}, checked : details[i], clue : "{{d.clue}}" });
+            tab.push({x : {{d.position_x}}, y : {{d.position_y}}, height: {{d.height}}, width: {{d.width}}, checked : details[i], clue : "{{d.clue}}", payedClue : false });
             i += 1;
         {% endfor %}
         for (let i = 0; i < 5; i++) {
@@ -95,18 +96,14 @@
 
       <div class="help-content">
         <h3 class="title">Règle du jeu</h3>
-
         <p class="text"> Je suis caché dans un des tableaux du musée. Pour me trouver, tu devras passer tous les niveaux . Cherche
         sur chaque tableau, les cinq morceaux proposés, en cliquant dessus. Si tu es au musée, active le mode visite. Après
         cinq niveaux, tu plongeras dans un nouveau monde artistique du musée. Tu devras changer de salle si tu y es. </p>
-
-
         <p class="text">Si tu est bloqué, clique sur <i class="fas fa-lightbulb"></i> pour avoir des indices. Tu les payeras avec les étoiles que tu auras
         récupéré chaque fois que tu retrouves un morceau.</p>
 
         <!-- Mettre un démo -->
         <img id="painting" src="{% static 'images/w1level1.jpg' %}">
-
         <p class="text"> <i class="fas fa-exclamation-triangle" ></i> Attention, au bout de trop de clics consécutifs, tu seras
         bloqué pendant un certain temps </p>
       </div>

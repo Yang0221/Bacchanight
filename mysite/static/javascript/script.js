@@ -125,11 +125,31 @@ function checkClues(){
       $('.clues .details img:nth-child('+ (i+1) +')').addClass('hide');
     }
   }
+  $('.clue .value').text("");
 }
 
 // Affiche l'indice demandé
 function displayClue(index){
-  $('.clue .value').text(tab[index].clue)
+  $('.clue .value').text("");
+  if(tab[index].payedClue == false){
+    if (stars >= 3){
+      $.ajax({
+          type : "POST",
+          url : "buy_clue",
+          dataType: 'json',
+          data : { 'cost' : 3}
+      })
+
+      tab[index].payedClue = true;
+      stars = stars - 3;
+      $('.nav-star h3').text(stars);
+      $('.clue .value').text(tab[index].clue);
+    } else {
+      $('.clue .value').html('<i class="fas fa-exclamation-triangle"></i> Tu n\'as pas assez d\'étoiles pour acheter cet indice ! ');
+    }
+  } else {
+    $('.clue .value').text(tab[index].clue);
+  }
 }
 
 //Floute ou non le tavleau
