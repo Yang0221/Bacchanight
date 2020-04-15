@@ -78,8 +78,10 @@
       </div>
     </div>
     <div class="next-level hide popup">
-        <h3>Gagné !</h3>
-        <a href="{% url 'game:next_level' %}">Niveau suivant</a>
+        <div class="next-level-contain">
+          <h3 class="title">Gagné !</h3>
+          <a href="{% url 'game:next_level' %}" class="button button-light">Niveau suivant</a>
+        </div>
     </div>
     <div class="help hide">
       <i class="fas fa-times hide-button icon" onclick="popUp('.help')"></i>

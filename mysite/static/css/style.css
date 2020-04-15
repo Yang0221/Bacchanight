@@ -177,22 +177,21 @@ body {
   left: 95vw;
 }
 
-.next-level {
+.next-level-contain {
   position: absolute;
   top: 30vh;
   left: 10vw;
-  background: white;
+  background-color: #0B3C49;
+  color: white;
   height: 25vh;
   width: 80vw;
+  display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+
 }
 
-.next-level h3{
-
-  text-transform: uppercase;
-}
 
 .next-level a {
   border-radius: .25rem;
