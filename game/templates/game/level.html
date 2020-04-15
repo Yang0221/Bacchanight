@@ -54,9 +54,9 @@
           <h3 class="title">{{level.name}}</h3>
       </div>
       <div class="main-image">
-          <div class="timer hide">
-            <p></p>
-          </div>
+        <div class="timer hide">
+          <p></p>
+        </div>
           <img class="painting" src="{% static 'images/' %}{{level.image}}" onclick="check(event)">
       </div>
     </div>
@@ -101,7 +101,7 @@
         cinq niveaux, tu plongeras dans un nouveau monde correspondant à un mouvement artistique d'une des salles musée. Tu devras changer de salle si tu t'y trouves. </p>
         <p class="text">Si tu est bloqué, clique sur <i class="fas fa-lightbulb"></i> pour avoir des indices. Chaque indices te couteras 3 étoiles. Tu pourras en obtenir en gagnant un niveau (moins tu auras fait de clics, plus tu auras d'étoiles).</p>
 
-        <img class="painting" src="{% static 'images/demo1.png' %}">
+        <img src="{% static 'images/demo1.png' %}">
         <p class="text"> <i class="fas fa-exclamation-triangle" ></i> Attention, au bout d'un certain nombre de clics, tu seras
         bloqué pendant quelques secondes !</p>
       </div>

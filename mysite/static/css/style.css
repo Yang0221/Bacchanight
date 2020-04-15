@@ -30,6 +30,11 @@ body {
   text-align: center;
 }
 
+.connexion-error {
+  color : red;
+  font-size: 2rem;
+}
+
 
 /**************************** button ****************************/
 
@@ -189,7 +194,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 
@@ -230,6 +234,11 @@ body {
   width: 100vw;
   justify-content: center;
   align-items: center;
+}
+
+.timer p {
+  font-size: 10vh;
+  text-align: center;
 }
 
 .visit {

@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 import json
 
-BOSS_LEVEL_ID = 35        #a changer quand le vrai level 35 aura été ajout"
+BOSS_LEVEL_ID = 36
 
 # Affiche la page d'accueil
 def index(request):
@@ -45,7 +45,7 @@ def next_level(request):
         player_level = player.id_level
         id = (player_level.id)+1
         if id == BOSS_LEVEL_ID :
-            return HttpResponseRedirect('boss')             #voir pour la route 
+            return HttpResponseRedirect('boss')             #voir pour la route
 
         next_level = Level.objects.get(id = id )
         player.id_level = next_level
@@ -78,7 +78,7 @@ def add_user(request):
         players = Player.objects.all()
         for p in players:
             if new_pseudo == p.login:
-                return render(request , 'game/form_user.html', {'error' : "Ce pseudo est déjà utilisé."})
+                return render(request , 'game/form_user.html', {'error' : "Ce pseudo est déjà utilisé.", 'start' :  'add_user'})
         level = Level.objects.get(id=first_level)
         new_player = Player(login = new_pseudo, id_level = level, nb_stars  = 3)
         new_player.save()
@@ -95,10 +95,9 @@ def recover_user(request):
                 request.session['player_id'] = p.id
                 level = Level.objects.get(name = p.id_level)
                 return HttpResponseRedirect('level')
-        return render(request , 'game/form_user.html', {'error' : "Aucune partie ne correspond à ce joueur."})
+        return render(request , 'game/form_user.html', {'error' : "Aucune partie ne correspond à ce joueur.", 'continue' :  'recover_user' })
 
 # Enregistre un ddétail trouvé dans la BDD
-# Marche pas pour le momement (liée au AJAX qui marche pas)
 def check_detail(request):
     if request.is_ajax and request.POST:
         num = request.POST.get('num')
@@ -117,7 +116,7 @@ def check_detail(request):
         return HttpResponse(json.dumps("ok"), content_type="application/json")
     else:
         raise Http404
-
+# Enregistre  un nouveau clic dans la BDD
 def new_click(request):
     if request.is_ajax and request.POST:
         player = Player.objects.get(id = request.session['player_id'])
@@ -127,6 +126,7 @@ def new_click(request):
     else:
         raise Http404
 
+# Décremente le compteur à l'achat d'une étoile
 def buy_clue(request):
     if request.is_ajax and request.POST:
         player = Player.objects.get(id = request.session['player_id'])
