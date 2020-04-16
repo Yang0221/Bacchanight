@@ -15,6 +15,12 @@ body {
   margin : 0px;
 }
 
+.error {
+  color : red;
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
 
 /**************************** home page + formulaire ****************************/
 
@@ -28,11 +34,6 @@ body {
   align-items: center;
   color: white;
   text-align: center;
-}
-
-.connexion-error {
-  color : red;
-  font-size: 2rem;
 }
 
 .classic-flex {
@@ -341,7 +342,7 @@ body {
 .boss {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   height: 92vh;
   width : 100vw;
@@ -361,7 +362,7 @@ body {
 
 .question-responses {
   height: 15vh;
-  padding: 3vh;
+  padding: 1vh;
   font-size: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -374,4 +375,25 @@ body {
 
 .question-responses div {
   width: 50%;
+}
+
+.illustrations-responses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+}
+
+.item {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 50vw;
+  height: 25vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.item img {
+  width :45vw;
 }

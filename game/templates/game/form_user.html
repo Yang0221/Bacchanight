@@ -9,7 +9,7 @@
   <form action="{% if start %}{{start}}{% elif continue %}{{continue}}{% endif %}" method="POST" class="classic-flex">
       {% csrf_token %}
       <label for="pseudo" class="title">Pseudo</label>
-      <p class="connexion-error">{% if error %}{{error}}{% endif %}</p>
+      <p class="error">{% if error %}{{error}}{% endif %}</p>
       <input id="pseudo" type="text" placeholder="Pseudo" name="pseudo">
       {% if start %}
           <input type="submit" value="Jouer" class="button button-light">
