@@ -52,10 +52,6 @@ def next_level(request):
         player = Player.objects.get(id = request.session['player_id'])
         player_level = player.id_level
         id = (player_level.id)+1
-        if id == BOSS_LEVEL_ID :
-            player.id_level = BOSS_LEVEL_ID
-            player.save()
-            return HttpResponseRedirect('boss')
         next_level = Level.objects.get(id = id )
         player.id_level = next_level
         print(player.currentClick)
@@ -74,8 +70,9 @@ def next_level(request):
         player.detail3 = False
         player.detail4 = False
         player.detail5 = False
-
         player.save()
+        if id == BOSS_LEVEL_ID :
+            return HttpResponseRedirect('boss')
         return HttpResponseRedirect('level')
     return render(request , 'game/index.html')
 
