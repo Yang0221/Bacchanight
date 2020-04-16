@@ -148,6 +148,7 @@ def buy_clue(request):
 def boss(request):
     try:
         player = Player.objects.get(id = request.session['player_id'])
+        error = ""
         #if player.id_level != BOSS_LEVEL_ID :
         #    raise Http404
         step = 0
@@ -156,11 +157,11 @@ def boss(request):
             if request.POST.get('response') == Boss_content[step]['good_response']:
                 step = step + 1
             else :
-                print("try again")
+                error = "Mauvaise réponse, réessaie !"
 
 
     except Player.DoesNotExist:
         raise Http404
 
     if step == 0 or step == 1 or step == 3 or step == 4 or step == 5:
-        return render(request , 'game/boss.html', {'basic' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'responses' : Boss_content[step]['responses'], 'images' : Boss_content[step]['images']})
+        return render(request , 'game/boss.html', {'basic' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'responses' : Boss_content[step]['responses'], 'images' : Boss_content[step]['images'], 'error' : error})
