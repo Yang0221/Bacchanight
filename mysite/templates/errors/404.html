@@ -3,8 +3,10 @@
 {% block title %}Error 404{% endblock title %}
 
 {% block body %}
-<body style="background-color : #0B3C49; color : #f3f7fb;">
+<body>
+    <div class="simple-body">
     <!-- Ajouter un lien vers le formualaire -->
-    <a href="{% url 'home'%}"><h2>Return to Home page</h2></a>
+        <a href="{% url 'form_user'%}" class="button button-light"><h2>Return to Home page</h2></a>
+    </div>
 </body>
 {% endblock body %}
