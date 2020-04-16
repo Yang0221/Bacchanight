@@ -5,8 +5,8 @@
 {% block body %}
 <body>
     <div class="simple-body">
-    <!-- Ajouter un lien vers le formualaire -->
-        <a href="{% url 'form_user'%}" class="button button-light"><h2>Return to Home page</h2></a>
+        <p class="title">Oups... Quelque chose s'est mal passé !</p>
+        <a href="{% url 'home' %}" class="button button-light"><h2>Return to Home page</h2></a>
     </div>
 </body>
 {% endblock body %}
