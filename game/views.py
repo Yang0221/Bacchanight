@@ -164,7 +164,8 @@ def boss(request):
     except Player.DoesNotExist:
         raise Http404
 
-    if step == 0 or step == 1 or step == 3 or step == 4 or step == 5:
+    if step == 0 or step == 1 or step == 3 or step == 4:
         return render(request , 'game/boss.html', {'basic' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'responses' : Boss_content[step]['responses'], 'images' : Boss_content[step]['images'], 'error' : error})
     if step == 2 :
         return render(request , 'game/boss.html', {'middle' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'images' : Boss_content[step]['images'], 'error' : error})
+    return render(request , 'game/boss.html', {'middle' : 'true', 'player' : player, 'title' : 'boss', 'step' : step})

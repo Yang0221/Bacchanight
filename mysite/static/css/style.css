@@ -357,12 +357,14 @@ body {
 }
 
 .illustrations img {
-  width : 75vw;
+  height: 30vh;
+  max-width: 75vw;
 }
 
 .question-responses {
   height: 15vh;
-  padding: 1vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
   font-size: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -383,6 +385,15 @@ body {
   justify-content: center;
   align-items: center;
   height: 65vh;
+}
+
+
+.question {
+  padding-left: 1vh;
+  padding-right: 1vh;
+  font-size: 2rem;
+  display: flex;
+  text-align: center;
 }
 
 .item {
