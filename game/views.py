@@ -13,7 +13,11 @@ import json
 BOSS_LEVEL_ID = 36
 Boss_content = [
 {'text' : 'question', "responses" : ['choix 1', 'choix 2', 'choix 3' ,'choix 4'], 'good_response' : 'choix 1', 'images' : ['w1level5.jpg', 'w4level2.jpg']},
-{'text' : 'question2', "responses" : ['choix 5', 'choix 6', 'choix 7' ,'choix 8'], 'good_response' : 'choix 7', 'images' : ['image 3', 'image 4']}
+{'text' : 'question2', "responses" : ['choix 5', 'choix 6', 'choix 7' ,'choix 8'], 'good_response' : 'choix 7', 'images' : ['image 3', 'image 4']},
+{},
+{},
+{'text' : 'question', "responses" : ['choix 1', 'choix 2', 'choix 3' ,'choix 4'], 'good_response' : 'choix 1', 'images' : ['w1level5.jpg', 'w4level2.jpg']},
+{'text' : 'question2', "responses" : ['choix 5', 'choix 6', 'choix 7' ,'choix 8'], 'good_response' : 'choix 7', 'images' : ['image 3', 'image 4']},
 ]
 
 # Affiche la page d'accueil
