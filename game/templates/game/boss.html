@@ -1,0 +1,51 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block title %}Game{% endblock title %}
+
+{% block body %}
+    <div class="game-body">
+      {% include "game/nav_level.html" %}
+      <form class="boss" action="boss" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="step" value="{{step}}">
+        {% if basic %}
+          <div class="illustrations">
+            {% for i in images %}
+            <img src="{% static 'images/' %}{{i}}">
+            {% endfor %}
+          </div>
+        {% elif middle %}
+          <div class="illustrations-responses">
+
+          </div>
+        {% elif final %}
+
+        {% endif %}
+
+
+
+
+        {% if basic %}
+          <div class="question-responses">
+            <p>{{text}}</p>
+              {% for r in responses %}
+              <div>
+                <input type="radio" id="{{r}}" name="response" value="{{r}}">
+                <label for="{{r}}">{{r}}</label>
+              </div>
+              {% endfor %}
+
+          </div>
+        {% elif middle %}
+          <div class="question">
+          </div>
+        {% elif final %}
+
+        {% endif %}
+
+
+        <button type="submit" name="button" class="button button-dark">Valider</button>
+      </form>
+    </div>
+
+{% endblock %}

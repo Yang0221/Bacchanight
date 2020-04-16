@@ -39,16 +39,7 @@
 {% block content %}
 
   <div class="game_body">
-    <div class="nav">
-      <div class="nav-star">
-        <h3 class="icon">{{player.nb_stars}}</h3>
-        <i class="fas fa-star icon" ></i>
-      </div>
-
-      <h3 class="nav-title title">{{level.world.name}}</h3>
-      <i class="far fa-question-circle icon" onclick="popUp('.help')"></i>
-      <i onclick="popUp('.clues'); checkClues()"  class="fas fa-lightbulb icon"></i>
-    </div>
+    {% include "game/nav_level.html" %}
     <div class="main">
       <div class="main-title">
           <h3 class="title">{{level.name}}</h3>

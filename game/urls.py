@@ -13,5 +13,7 @@ urlpatterns = [
     path('next_level', views.next_level, name = "next_level"),
     path('check_detail', views.check_detail, name = "check_detail"),
     path('new_click', views.new_click, name = "new_click"),
-    path('buy_clue', views.buy_clue, name = "buy_clue")
+    path('buy_clue', views.buy_clue, name = "buy_clue"),
+    path('boss', views.boss, name = "boss"),
+
 ]

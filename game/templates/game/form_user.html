@@ -6,7 +6,7 @@
 <div class="simple-body">
   <img src="{% static 'images/header/header_image.png' %}">
   <h3>Trouve moi !</h3>
-  <form action="{% if start %}{{start}}{% elif continue %}{{continue}}{% endif %}" method="POST" class="button-group">
+  <form action="{% if start %}{{start}}{% elif continue %}{{continue}}{% endif %}" method="POST" class="classic-flex">
       {% csrf_token %}
       <label for="pseudo" class="title">Pseudo</label>
       <p class="connexion-error">{% if error %}{{error}}{% endif %}</p>

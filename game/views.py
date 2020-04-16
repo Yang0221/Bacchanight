@@ -11,6 +11,10 @@ from django.http import HttpResponse
 import json
 
 BOSS_LEVEL_ID = 36
+Boss_content = [
+{'text' : 'question', "responses" : ['choix 1', 'choix 2', 'choix 3' ,'choix 4'], 'good_response' : 'choix 1', 'images' : ['w1level5.jpg', 'w4level2.jpg']},
+{'text' : 'question2', "responses" : ['choix 5', 'choix 6', 'choix 7' ,'choix 8'], 'good_response' : 'choix 7', 'images' : ['image 3', 'image 4']}
+]
 
 # Affiche la page d'accueil
 def index(request):
@@ -45,8 +49,9 @@ def next_level(request):
         player_level = player.id_level
         id = (player_level.id)+1
         if id == BOSS_LEVEL_ID :
-            return HttpResponseRedirect('boss')             #voir pour la route
-
+            player.id_level = BOSS_LEVEL_ID
+            player.save()
+            return HttpResponseRedirect('boss')
         next_level = Level.objects.get(id = id )
         player.id_level = next_level
         print(player.currentClick)
@@ -135,3 +140,23 @@ def buy_clue(request):
         return HttpResponse(json.dumps("ok"), content_type="application/json")
     else:
         raise Http404
+
+def boss(request):
+    try:
+        player = Player.objects.get(id = request.session['player_id'])
+        #if player.id_level != BOSS_LEVEL_ID :
+        #    raise Http404
+        step = 0
+        if request.POST:
+            step = int(request.POST.get('step'))
+            if request.POST.get('response') == Boss_content[step]['good_response']:
+                step = step + 1
+            else :
+                print("try again")
+
+
+    except Player.DoesNotExist:
+        raise Http404
+
+    if step == 0 or step == 1 or step == 3 or step == 4 or step == 5:
+        return render(request , 'game/boss.html', {'basic' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'responses' : Boss_content[step]['responses'], 'images' : Boss_content[step]['images']})
