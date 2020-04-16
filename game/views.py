@@ -17,7 +17,7 @@ Boss_content = [
 {'text' : 'Tu y es presque ! Avec tout ce que tu sais sur l endroit où je suis, je suis sûre que tu peux trouver le tableau qui me contient', 'images' : [ 'choix1.jpg', 'choix2.jpg' , 'choix3.jpg', 'choix4.jpg'], 'good_response' : '3' },
 {'text' : 'Et voilà, tu as retrouvé ma cachette! J espere que tu vois le point commum entre ces tableaux! Je suis comme eux', "responses" : ['Petit garçon', 'Animal', 'Marchand' ,'Oiseau'], 'good_response' : 'Petit garçon', 'images' : ['w2level3.jpg', 'w3level1.jpg']},
 {'text' : 'Oh mais dans cet endroit, il y en a beaucoup comme moi ! C est plus simple si tu sais ce que je porte. Tu verras en commun avec ces tableaux!', "responses" : ['Chemise blanche', 'Chapeau', 'Pantalon orange' ,'Jupe'], 'good_response' : 'Chapeau', 'images' : ['w3level4.jpg', 'w6level5.jpg']},
-{''},
+{'text' : 'Alors tu sais qui suis-je ? Alors clique sur moi!', 'position_x': '65', 'position_y': '87', 'width': '7', 'height':'9', 'Phrases': ['Presque mais ce n est pas moi, jouer n est pas ce qui m interesse le plus', 'Je préfère observer et parler de sujets intéressant avec une grande personne' , 'Je suis le petit garçon avec un manteau, pas loin de la porte de l eglise et en train de parler à la dame.']},
 ]
 
 # Affiche la page d'accueil
