@@ -12,12 +12,12 @@ import json
 
 BOSS_LEVEL_ID = 36
 Boss_content = [
-{'text' : 'question', "responses" : ['choix 1', 'choix 2', 'choix 3' ,'choix 4'], 'good_response' : 'choix 1', 'images' : ['w1level5.jpg', 'w4level2.jpg']},
-{'text' : 'question2', "responses" : ['choix 5', 'choix 6', 'choix 7' ,'choix 8'], 'good_response' : 'choix 7', 'images' : ['image 3', 'image 4']},
-{},
-{},
-{'text' : 'question', "responses" : ['choix 1', 'choix 2', 'choix 3' ,'choix 4'], 'good_response' : 'choix 1', 'images' : ['w1level5.jpg', 'w4level2.jpg']},
-{'text' : 'question2', "responses" : ['choix 5', 'choix 6', 'choix 7' ,'choix 8'], 'good_response' : 'choix 7', 'images' : ['image 3', 'image 4']},
+{'text' : 'Tu es sur le point de me retrouver. Je suis dans une ville que tu as sûrement reconnu à travers ces photos. Sais-tu où suis-je?', "responses" : ['Lyon', 'Bordeaux', 'Strasbourg' ,'Toulouse'], 'good_response' : 'Bordeaux', 'images' : ['w1level5.jpg', 'w4level2.jpg']},
+{'text' : 'Tu as trouvé que je suis à Bordeaux. Dans l endroit où je suis, tu retrouveras un élément qui est dans ces deux tableaux à la fois', "responses" : ['Drapeau', 'Cheval', 'Eglise' ,'Voiture'], 'good_response' : 'Eglise', 'images' : ['w6level3.jpg', 'w6level4.jpg']},
+{'text' : 'Tu y es presque ! Avec tout ce que tu sais sur l endroit où je suis, je suis sûre que tu peux trouver le tableau qui me contient', 'images' : [ 'choix1.jpg', 'choix2.jpg' , 'choix3.jpg', 'choix4.jpg'], 'good_response' : '3' },
+{'text' : 'Et voilà, tu as retrouvé ma cachette! J espere que tu vois le point commum entre ces tableaux! Je suis comme eux', "responses" : ['Petit garçon', 'Animal', 'Marchand' ,'Oiseau'], 'good_response' : 'Petit garçon', 'images' : ['w2level3.jpg', 'w3level1.jpg']},
+{'text' : 'Oh mais dans cet endroit, il y en a beaucoup comme moi ! C est plus simple si tu sais ce que je porte. Tu verras en commun avec ces tableaux!', "responses" : ['Chemise blanche', 'Chapeau', 'Pantalon orange' ,'Jupe'], 'good_response' : 'Chapeau', 'images' : ['w3level4.jpg', 'w6level5.jpg']},
+{''},
 ]
 
 # Affiche la page d'accueil
