@@ -16,13 +16,21 @@
           </div>
         {% elif middle %}
           <div class="illustrations-responses">
-
+            {% for i in images %}
+              <div class="item">
+                <input type="radio" id="{% cycle 1 2 3 4 %}" name="response" value="{% cycle 1 2 3 4 %}">
+                <label for="{% cycle 1 2 3 4 %}"><img src="{% static 'images/' %}{{i}}"></label>
+              </div>
+              {% endfor %}
           </div>
         {% elif final %}
 
         {% endif %}
 
 
+        {% if error != ""%}
+          <p class="error">{{error}}</p>
+        {% endif %}
 
 
         {% if basic %}
@@ -38,10 +46,12 @@
           </div>
         {% elif middle %}
           <div class="question">
+              <p>{{text}}</p>
           </div>
         {% elif final %}
 
         {% endif %}
+
 
 
         <button type="submit" name="button" class="button button-dark">Valider</button>

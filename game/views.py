@@ -154,14 +154,18 @@ def boss(request):
         step = 0
         if request.POST:
             step = int(request.POST.get('step'))
-            if request.POST.get('response') == Boss_content[step]['good_response']:
+            if request.POST.get('response') == Boss_content[step]['good_response'] request.POST.get('response') ==  Boss_content[step]['good_response']:
+                player.nb_stars = player.nb_stars + 5
                 step = step + 1
             else :
+                player.nb_stars = player.nb_stars - 3
                 error = "Mauvaise réponse, réessaie !"
-
-
+            player.save()
     except Player.DoesNotExist:
         raise Http404
 
     if step == 0 or step == 1 or step == 3 or step == 4 or step == 5:
         return render(request , 'game/boss.html', {'basic' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'responses' : Boss_content[step]['responses'], 'images' : Boss_content[step]['images'], 'error' : error})
+    if step == 2 :
+        #return render(request , 'game/boss.html', {'middle' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : Boss_content[step]['text'], 'images' : Boss_content[step]['images'], 'error' : error})
+        return render(request , 'game/boss.html', {'middle' : 'true', 'player' : player, 'title' : 'boss', 'step' : step, 'text' : 'question', 'images' : ['choix1.jpg' , 'choix2.jpg', 'choix3.jpg', 'choix4.jpg'] , 'error' : error})

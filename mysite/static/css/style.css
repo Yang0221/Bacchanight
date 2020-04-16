@@ -342,7 +342,7 @@ body {
 .boss {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   height: 92vh;
   width : 100vw;
@@ -375,4 +375,25 @@ body {
 
 .question-responses div {
   width: 50%;
+}
+
+.illustrations-responses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+}
+
+.item {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 50vw;
+  height: 25vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.item img {
+  width :45vw;
 }
