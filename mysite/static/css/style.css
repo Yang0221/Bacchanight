@@ -268,28 +268,22 @@ body {
 }
 
 @media (orientation: landscape){
-  .game_body {
-    width: 50vw;
-    margin-left: 25vw;
+  .nav {
+    height: 12vh;
   }
 
-  .title + .main-title .title {
-    font-size : 2rem;
+  .clues {
+    top : 12vh;
   }
 
-  .icon {
+  .main-title .title {
     font-size: 3rem;
   }
-  .main-title {
-    width : 25vw;
+
+  .next-level-contain {
+    height: 40vh;
   }
 }
-
-.text {
-  font-size: 1.5rem;
-  text-align: center;
-}
-
 /****************************   mode visite    ****************************/
 
 .visitMode {
